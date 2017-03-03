@@ -1,1 +1,2 @@
-# salon-spa
+# amavara
+sample site

@@ -1,0 +1,17 @@
+module.exports = {
+  index : function(req, res){
+      res.render('profile',{
+      });
+  },
+
+  signup : function(req, res){
+      res.render('signup',{
+      });
+  },
+
+  users : function(req, res){
+      res.render('users',{
+      });
+  }
+
+};
