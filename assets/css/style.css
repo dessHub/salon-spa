@@ -36,7 +36,6 @@ nav ul a{
 nav .right,
 nav .right  li a {
   color: #fff;
-  text-decoration: underline;
 }
 nav .right1  li a {
   color: #fff;
@@ -96,8 +95,12 @@ h3{
   padding-top: 60px;
 }
 
-#section1{
+#section11{
   background: #F6CEF5;
+}
+
+#section1{
+  background: #fff;
 }
 
 .slides{
@@ -175,7 +178,7 @@ background-color: #fff;
 }
 
 .section{
-  padding-top:50px;
+  padding-top:0px;
 }
 .card-height{
   width: 300px;
@@ -206,6 +209,10 @@ background-color: #fff;
   height: 300px;
   width: 300px;
   object-fit: cover;
+}
+.card-image2 a{
+  color: #800080;
+  margin-left: 20px;
 }
 .card-action {
     position: relative;
