@@ -1,2 +1,2 @@
-# amavara
-sample site
+# mysalon
+A salon beauty app 
