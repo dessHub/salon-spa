@@ -14,7 +14,7 @@ body, html {
 body {
   width: 100%;
   font-family: 'Open Sans',sans-serif;
-  background: #ccc;
+  background: #fff;
   color: #4E5E6A; }
   body:not(.page-horizontal-bar):not(.small-sidebar) {
     text-align: center; }
@@ -40,9 +40,9 @@ p {
   line-height: 60px;
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
-  background: #000; }
+  background: #fff; }
   .top-bar .title-area {
-    background: rgba(0, 0, 0, 0.75);
+    background: #fff;
   }
   .top-bar li.name {
     height: 60px;
@@ -56,10 +56,13 @@ p {
       .top-bar li.name h1 a {
         -webkit-transition: all 0.2s ease-in-out;
         transition: all 0.2s ease-in-out;
-        color: #fff;
+        color: #800080;
         font-family: 'Lato';
+        font-weight: bold;
+        font-style: italic;
         font-size: 20px;
-        text-align: center; }
+        text-align: center;
+        background: #fff }
   .top-bar li.toggle-topbar span {
     font-size: 1.4em; }
   @media only screen and (max-width: 640px) {
@@ -80,21 +83,21 @@ p {
 
 .top-bar-section ul li {
   padding: 0 15px;
-  background: rgba(0, 0, 0, 0.75); }
+  background:#fff; }
   .top-bar-section ul li:not(.has-form) a {
     -webkit-transition: all 0.2s ease-in-out;
     transition: all 0.2s ease-in-out;
-    color: #fff; }
+    color: #000; }
     .top-bar-section ul li:not(.has-form) a:not(.button) {
       line-height: 60px;
       position: relative;
       display: block;
       font-size: 0.9em;
       padding: 0;
-      background: rgba(0, 0, 0, 0.75); }
+      background:#fff }
       .top-bar-section ul li:not(.has-form) a:not(.button):hover {
-        background: rgba(0, 0, 0, 0.75);
-        color: #fff; }
+        background:#fff;
+        color: #000; }
       @media only screen and (max-width: 640px) {
         .top-bar-section ul li:not(.has-form) a:not(.button) {
           line-height: 30px;
@@ -104,7 +107,7 @@ p {
   .top-bar-section ul li a {
     text-transform: normal; }
     .top-bar-section ul li a:hover {
-      background: transparent; }
+      background: #000; }
   @media only screen and (max-width: 640px) {
     .top-bar-section ul li {
       padding: 0; } }
@@ -286,12 +289,12 @@ input.form-control.input-rounded {
       z-index: 0; } }
 
 .sidebar {
-  background: #000; 
+  background: #aaabae; 
   height: 100%;}
   .sidebar .sidebar-header {
     clear: both;
     padding: 20px;
-    background: #000; }
+    background:#aaabae; }
   .sidebar .sidebar-profile {
     overflow: hidden;
     position: relative;
@@ -304,8 +307,9 @@ input.form-control.input-rounded {
       left: 0.5em;
       content: ''; }
     .sidebar .sidebar-profile span {
-      color: #fff;
-      font-weight: 600;
+      color: #000;
+      font-weight: bolder;
+      font-size: 24px;
       display: block;
       padding: 8px 0 0;
       text-align: center; }
@@ -325,11 +329,11 @@ input.form-control.input-rounded {
  * sidebar menu styling
  * -----------------------------------------------------*/
 .menu {
-  background: #000; }
+  background: #aaabae; }
   .menu.accordion-menu {
     padding: 0;
     margin: 0;
-    color: #fff;
+    color: #000;
     position: relative;
     display: block; }
     .menu.accordion-menu > li {
@@ -337,8 +341,8 @@ input.form-control.input-rounded {
       .menu.accordion-menu > li > a {
         text-align: center; }
       .menu.accordion-menu > li.active > a {
-        background: #000;
-        color: #fff; }
+        background: #aaabae;
+        color: #000; }
       .menu.accordion-menu > li > a.arrow::before {
         width: 10px;
         float: right;
@@ -356,10 +360,10 @@ input.form-control.input-rounded {
       background: 0 0;
       text-decoration: none;
       font-size: 13px;
-      color: #899dc1; }
+      color: #000; }
       .menu.accordion-menu a:hover {
-        background: #2b384e;
-        color: #fff; }
+        background: #aaabae;
+        color: #800080; }
       .menu.accordion-menu a span {
         display: inline-block;
         font-size: 20px;
@@ -388,7 +392,7 @@ input.form-control.input-rounded {
  * -----------------------------------------------------*/
 .page-title {
   padding: 20px;
-  background: #e9edf2;
+  background: #fff;
   border-bottom: 1px solid #dee2e8; }
   .page-title h3 {
     font-size: 24px;
@@ -419,7 +423,7 @@ input.form-control.input-rounded {
  * -----------------------------------------------------*/
 .page-inner {
   padding: 0 0 0px;
-  background: #F1F4F9;
+  background: #fff;
   position: relative;
   overflow: hidden; }
   @media only screen and (max-width: 768px) {
