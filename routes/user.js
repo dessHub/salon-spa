@@ -9,8 +9,8 @@ module.exports = {
       });
   },
 
-  users : function(req, res){
-      res.render('users',{
+  profile : function(req, res){
+      res.render('dashboard/user/profile',{
       });
   }
 
