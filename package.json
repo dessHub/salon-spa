@@ -1,7 +1,7 @@
-{
-  "name": "amavara",
+salon-spa{
+  "name": "salon-spa",
   "version": "1.0.0",
-  "description": "photography/fashion site",
+  "description": "beauty salon app",
   "main": "server.js",
   "scripts": {
     "test": "nodemon",
@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/CherutoMercy/amavara.git"
+    "url": "git+https://github.com/CherutoMercy/salon-spa.git"
   },
   "author": "mercy",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/CherutoMercy/amavara/issues"
+    "url": "https://github.com/CherutoMercy/salon-spa/issues"
   },
-  "homepage": "https://github.com/CherutoMercy/amavara#readme",
+  "homepage": "https://github.com/CherutoMercy/salon-spa#readme",
   "dependencies": {
     "connect-flash": "^0.1.1",
     "ejs": "^2.5.5",
