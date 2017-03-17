@@ -342,7 +342,7 @@ input.form-control.input-rounded {
         text-align: center; }
       .menu.accordion-menu > li.active > a {
         background: #aaabae;
-        color: #000; }
+        color: #800080; }
       .menu.accordion-menu > li > a.arrow::before {
         width: 10px;
         float: right;
