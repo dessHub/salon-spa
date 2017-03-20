@@ -7,14 +7,17 @@ var userRoutes     = require('./user');
 var salonRoutes     = require('./salon');
 
 router.get('/',        homeRoutes.index);
+router.get('/contact', homeRoutes.contact);
 router.get('/landing', landRoutes.index);
 
 /*
 Salon Routes
 */
 router.get('/salonindex', salonRoutes.index);
-router.get('/salonnew', salonRoutes.new);
-router.get('/salonedit', salonRoutes.edit);
+router.get('/newservice', salonRoutes.service);
+router.get('/newproduct', salonRoutes.product);
+router.get('/newstyle',   salonRoutes.style);
+router.get('/salonedit',  salonRoutes.edit);
 router.get('/salonprofile', salonRoutes.profile);
 
 /*
