@@ -3,8 +3,16 @@ module.exports = {
       res.render('dashboard/salons/index');
   },
 
-  new : function(req, res){
-      res.render('dashboard/salons/new');
+  service: function(req, res){
+      res.render('dashboard/salons/service');
+  },
+
+  product: function(req, res){
+      res.render('dashboard/salons/product');
+  },
+
+  style: function(req, res){
+      res.render('dashboard/salons/style');
   },
 
   edit : function(req, res){
