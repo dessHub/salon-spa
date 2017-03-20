@@ -22,6 +22,36 @@ body {
 .row {
   max-width: 100%; }
 
+.row.collapse > .column, .row.collapse > .columns {
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 30px;
+}
+
+.button.success, button.success {
+    background-color: #808080;
+    border-color: #800080;
+    color: #FFF;
+}
+
+.button.success, button.success {
+    background-color: #808080;
+    border-color: #800080;
+    color: #FFF;
+}
+.button.success:focus, .button.success:hover, button.success:focus, button.success:hover {
+    background-color: #000;
+    color: #FFF;
+}
+.th{
+  height: 300px;
+  width: 300px;
+  object-fit: cover;
+}
+.responsive-img{
+ height: 250px;
+ object-fit: cover
+}
 p {
   display: block;
   font-weight: 400;
@@ -408,7 +438,7 @@ input.form-control.input-rounded {
     padding: .5625rem .875rem;
     background-color: transparent;
     border-color: transparent;
-    border-radius: 0; }
+    border-radius: 0;}
     .page-title .page-breadcrumb .breadcrumbs > * {
       font-size: 13px;
       font-size: 13px;
