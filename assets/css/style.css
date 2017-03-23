@@ -82,6 +82,9 @@ h3{
   min-height: 400px;
 }*/
 
+#search{
+  background: #fff;
+}
 .parallax-container {
   min-height: 550px;
   line-height: 600px;
