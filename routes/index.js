@@ -5,6 +5,7 @@ var homeRoutes     = require('./home');
 var landRoutes     = require('./land');
 var userRoutes     = require('./user');
 var salonRoutes     = require('./salon');
+var searchRoutes     = require('./search');
 
 router.get('/',        homeRoutes.index);
 router.get('/contact', homeRoutes.contact);
@@ -19,6 +20,11 @@ router.get('/newproduct', salonRoutes.product);
 router.get('/newstyle',   salonRoutes.style);
 router.get('/salonedit',  salonRoutes.edit);
 router.get('/salonprofile', salonRoutes.profile);
+
+/*
+Search Routes
+*/
+router.get('/find', searchRoutes.index);
 
 /*
 User Routes
