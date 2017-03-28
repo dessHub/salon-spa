@@ -30,6 +30,12 @@ nav i, nav i.material-icons{
   line-height:32px;
 }
 
+.navbar-fixed{
+  position: fixed;
+  background: rgba(0, 0, 0, 0.75);
+  margin-bottom: 10px;
+}
+
 nav ul a{
   color: #43C6DB;
 }
@@ -56,9 +62,14 @@ p {
 h{
   font-family: 'LatoWebThin', 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 1.3em;
-  margin-bottom: 1.25rem;
   text-rendering: optimizeLegibility;
-  line-height: 1.6;
+  
+  font-weight: lighter;
+}
+h1{
+  font-family: 'LatoWebThin', 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size:15px;
+  text-rendering: optimizeLegibility;
   font-weight: lighter;
 }
 h3{
@@ -68,6 +79,9 @@ h3{
   text-rendering: optimizeLegibility;
   line-height: 1.6;
   font-weight: bold;;
+}
+.navbar li a{
+  color: #800080;
 }
 .p-elements {
   line-height: 1rem;
@@ -179,12 +193,30 @@ background-color: #fff;
     top: 0;
   }
 }
-
+.collection .collection-item1 {
+  background-color: #fff;
+  line-height: 1.5rem;
+  padding: 10px 20px;
+  margin: 0;
+  border-bottom: 1px solid #e0e0e0;
+}
+.collection a.collection-item1:not(.active):hover {
+  background-color: transparent;
+}
+.collection a.collection-item1 {
+  display: block;
+  transition: .25s;
+  color: #000;
+}
 .section{
   padding-top:0px;
 }
 .card-height{
   width: 300px;
+}
+
+.card-height1{
+  width: 100%;
 }
 
 .mid {
@@ -203,6 +235,12 @@ background-color: #fff;
   width: 500px;
   object-fit: cover;
 }
+
+.card .card-image4 img{
+  height: 400px;
+  width: 800px;
+  object-fit: cover;
+}
 .card .card-image1 img{
   height: 300px;
   width: 100%;
@@ -210,6 +248,12 @@ background-color: #fff;
 
 .card .card-image2 img{
   height: 300px;
+  width: 300px;
+  object-fit: cover;
+}
+
+.card .card-image3 img{
+  height: 150px;
   width: 300px;
   object-fit: cover;
 }
@@ -246,18 +290,33 @@ font-size: 11px;
   padding: 5px 14px 0px 15px;
 }
 
+.collection a.collection-item {
+    color: #000;
+
 .row{
   margin-top: 15px;
 }
 #edit{
   margin: 20px 30px 20px 50px
 }
-.navbar-fixed{
-  position: fixed;
+
+
+.fixed{
   background: rgba(0, 0, 0, 0.75);
   margin-bottom: 10px;
 }
+.bottom{
+  display: inline;
+}
 
+.bottom li{
+  display: inline;
+  padding:0px 40px 30px 0px;
+  margin-left: 40px;
+}
+.bottom li a{
+color: #000
+}
 .input-field{
   margin: 0 50px 20px 50px
 }
@@ -278,9 +337,7 @@ h2{
   text-transform: lowercase;;
   padding: 5px 5px 0px 5px;
 }
-.bottom li{
-  display: inline;
-}
+
 .card .card-action a:not(.btn):not(.btn-large):not(.btn-large):not(.btn-floating) {
     color: #43C6DB;
     font-size: 1.0rem;
