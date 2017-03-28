@@ -14,17 +14,21 @@ router.get('/landing', landRoutes.index);
 /*
 Salon Routes
 */
-router.get('/salonindex', salonRoutes.index);
-router.get('/newservice', salonRoutes.service);
-router.get('/newproduct', salonRoutes.product);
-router.get('/newstyle',   salonRoutes.style);
-router.get('/salonedit',  salonRoutes.edit);
+router.get('/salonindex',   salonRoutes.index);
+router.get('/newservice',   salonRoutes.service);
+router.get('/newproduct',   salonRoutes.product);
+router.get('/newstyle',     salonRoutes.style);
+router.get('/salonedit',    salonRoutes.edit);
 router.get('/salonprofile', salonRoutes.profile);
 
 /*
 Search Routes
 */
-router.get('/find', searchRoutes.index);
+router.get('/find',   searchRoutes.index);
+router.get('/single', searchRoutes.single);
+router.get('/service', searchRoutes.service);
+router.get('/hair', searchRoutes.hair);
+router.get('/offer', searchRoutes.offer);
 
 /*
 User Routes
