@@ -29,7 +29,7 @@ router.get('/single', searchRoutes.single);
 router.get('/service', searchRoutes.service);
 router.get('/hair', searchRoutes.hair);
 router.get('/offer', searchRoutes.offer);
-
+router.get('/appointment', searchRoutes.appointment);
 /*
 User Routes
 */
