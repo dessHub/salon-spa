@@ -80,6 +80,10 @@ h3{
   line-height: 1.6;
   font-weight: bold;;
 }
+h5{
+  font-size: 48px;
+  font-weight: bolder;
+}
 .navbar li a{
   color: #800080;
 }
@@ -90,7 +94,9 @@ h3{
 .button-collapse {
   color: #26a69a;
 }
-
+.black {
+    background-color: rgba(0, 0, 0, 0.75) !important;
+}
 /*#small_posts_body{
   height: 400px;
   min-height: 400px;
