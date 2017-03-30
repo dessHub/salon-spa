@@ -22,6 +22,11 @@ module.exports = {
   offer : function(req, res){
       res.render('search/pages/offers',{
       });
+  },
+
+  appointment : function(req, res){
+      res.render('search/pages/appointment',{
+      });
   }
 
 };
