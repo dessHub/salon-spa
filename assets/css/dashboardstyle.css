@@ -48,10 +48,19 @@ body {
   width: 300px;
   object-fit: cover;
 }
+#appointment{
+  padding:20px 0px 0px 80px;
+}
 .responsive-img{
  height: 250px;
  object-fit: cover
 }
+
+h{
+  font-size: 24px;
+  font-weight: bolder;
+}
+
 p {
   display: block;
   font-weight: 400;
@@ -60,7 +69,9 @@ p {
   margin: 0 0 10px;
   font-style: normal;
   white-space: normal; }
-
+.align-center{
+  text-align: center;
+}
 /* ------------------------------------------------------
  * topbar navigation styling section
  * -----------------------------------------------------*/
