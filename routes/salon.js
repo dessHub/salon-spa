@@ -3,6 +3,10 @@ module.exports = {
       res.render('dashboard/salons/index');
   },
 
+  admin : function(req, res){
+      res.render('dashboard/salons/admin');
+  },
+
   service: function(req, res){
       res.render('dashboard/salons/service');
   },

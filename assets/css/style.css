@@ -53,7 +53,9 @@ nav .brand-logo i, nav .brand-logo [class^="mdi-"], nav .brand-logo [class*="mdi
 
     padding-top: 15px;
 }
-
+a{
+  color: #800080;
+}
 
 p {
   line-height: 2rem;
@@ -81,7 +83,7 @@ h3{
   font-weight: bold;;
 }
 h5{
-  font-size: 48px;
+  font-size: 38px;
   font-weight: bolder;
 }
 .navbar li a{
@@ -502,7 +504,10 @@ a {
 .icon-block .material-icons {
   font-size: inherit;
 }
-
+#section{
+ background-color: rgba(0, 0, 0, 0.75);
+}
 footer.page-footer {
-  margin: 0px 0px 0px 0px;
+    padding-top: 20px;
+    background-color: #000 !important;
 }

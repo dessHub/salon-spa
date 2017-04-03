@@ -6,10 +6,18 @@ var landRoutes     = require('./land');
 var userRoutes     = require('./user');
 var salonRoutes     = require('./salon');
 var searchRoutes     = require('./search');
+var adminRoutes     = require('./admin');
 
 router.get('/',        homeRoutes.index);
-router.get('/contact', homeRoutes.contact);
-router.get('/landing', landRoutes.index);
+
+/*
+Admin Routes
+*/
+router.get('/adminindex',   adminRoutes.index);
+router.get('/newservice',   adminRoutes.service);
+router.get('/newproduct',   adminRoutes.product);
+router.get('/salon',     adminRoutes.salon);
+router.get('/news',         adminRoutes.news);
 
 /*
 Salon Routes
