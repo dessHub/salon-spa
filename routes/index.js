@@ -27,7 +27,6 @@ router.get('/newservice',   salonRoutes.service);
 router.get('/newproduct',   salonRoutes.product);
 router.get('/newstyle',     salonRoutes.style);
 router.get('/salonedit',    salonRoutes.edit);
-router.get('/appointments',  salonRoutes.appointment);
 router.get('/news',         salonRoutes.news);
 router.get('/salonprofile', salonRoutes.profile);
 

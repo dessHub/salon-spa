@@ -3,9 +3,16 @@
 <div class ="top-bottom">
     <div class="row">
      <ul class="navbar">
-        <li class="col s4 m6 l4"><a href="/find">All Salons</a></li>
-        <li class="col s4 m6 l4"><a href="#">Nearby </a><a href ="#map"><i class="fa fa-map-marker fa-lg"></i></a></li>
-        <li class="col s4 m6 l4"><a href="#">Select Location</a></li>
+        <li class="col s4 m4 l4"><a href="/find">All Salons</a></li>
+        <li class="col s4 m6 l4"><a href="#modal3">Nearby<i class="fa fa-map-marker fa-lg"></i></a></li>
+        <li class="col s4 m4 l4">           
+            <select name="category">
+              <option value="">Select Location</option>
+              <option value="location1">Mombasa</option>
+              <option value="location2">Nairobi</option>
+              <option value="location2">Kisumu</option>
+            </select>
+        </li>
       </ul>
     </div>
 </div>
@@ -15,7 +22,7 @@
         <div class="col s4 m4 l2">
             <div class="collection">
               <a href="/service" class="collection-item">Our Services</a>
-              <a href="/appointment" class="collection-item">Schedule Appointment</a>
+              <a href="#modal1" class="collection-item">Schedule Appointment</a>
               <a href="/hair" class="collection-item">Hair Styles</a>
               <a href="/offer" class="collection-item">Offers</a>
             </div>
@@ -26,7 +33,7 @@
   <div class="collection-item1">
     <h><b>SalonIris</b><h>
     <h><a href ="#map"><i class="fa fa-map-marker"></i></a></h>
-    <a class="right btn-flat">Schedule Appointment</a>
+    <a href="#modal1" class="right btn-flat">Schedule Appointment</a>
   </div>
   <a href="#!" class="collection-item1">
     <h1>Location:Eldama Ravine Road, Westlands, Nairobi</h1>
@@ -74,4 +81,5 @@
 </div>
 </div>
 
-<% include templates/loginform.ejs %>
+<% include /templates/loginform.ejs %>
+<% include /templates/appointment.ejs %>
