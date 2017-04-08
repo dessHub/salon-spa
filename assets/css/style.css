@@ -48,6 +48,7 @@ nav .right1  li a {
 }
 nav .brand-logo {
   color: #fff;
+  padding: 12px 0px 0px 20px;
 }
 nav .brand-logo i, nav .brand-logo [class^="mdi-"], nav .brand-logo [class*="mdi-"], nav .brand-logo i.material-icons {
 
