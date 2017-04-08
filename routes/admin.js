@@ -1,6 +1,6 @@
 module.exports = {
   index : function(req, res){
-      res.render('dashboard/admin');
+      res.render('dashboard/admin/index');
   },
 
   service: function(req, res){

@@ -14,10 +14,10 @@ router.get('/',        homeRoutes.index);
 Admin Routes
 */
 router.get('/adminindex',   adminRoutes.index);
-router.get('/newservice',   adminRoutes.service);
-router.get('/newproduct',   adminRoutes.product);
-router.get('/salon',     adminRoutes.salon);
-router.get('/news',         adminRoutes.news);
+router.get('/adminservice',   adminRoutes.service);
+router.get('/adminproduct',   adminRoutes.product);
+router.get('/adminsalon',        adminRoutes.salon);
+router.get('/adminnews',         adminRoutes.news);
 
 /*
 Salon Routes
