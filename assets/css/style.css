@@ -338,6 +338,35 @@ font-size: 11px;
 .bottom li a{
 color: #000
 }
+
+.top-bottom1 .row{
+  margin: 0px 0px;
+  padding: 0px 0px 0px;
+}
+
+#section3{
+  margin-top: 0px;
+}
+
+.top-bottom1 .select-wrapper input.select-dropdown {
+    position: relative;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #fff;
+    outline: none;
+    height: 3rem;
+    line-height: 3rem;
+    width: 50%;
+    font-size: 1rem;
+    margin: 0 0 20px 0;
+    padding: 0;
+    display: block;
+}
+
+.top-bottom1 .select-wrapper span.caret {
+    color: #fff;
+  }
 .top-bottom .select-wrapper input.select-dropdown {
     position: relative;
     cursor: pointer;
