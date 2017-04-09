@@ -365,7 +365,13 @@ input.form-control.input-rounded {
       .sidebar .sidebar-profile img.img-circle {
         border-radius: 50%;
         border: 3px solid #80008; }
-
+td ul{
+  display: inline-block;
+  line-height: 10px;
+}
+table{
+  width: 100%;
+}
 /* ------------------------------------------------------
  * sidebar menu styling
  * -----------------------------------------------------*/

@@ -8,25 +8,36 @@ module.exports = {
   },
 
   service: function(req, res){
-      res.render('dashboard/salons/service');
+      res.render('dashboard/salons/salonservices');
+  },
+
+  newservice: function(req,res){
+     res.render('dashboard/salons/service');
   },
 
   product: function(req, res){
-      res.render('dashboard/salons/product');
+      res.render('dashboard/salons/salonproducts');
+  },
+
+  newproduct: function(req,res){
+     res.render('dashboard/salons/product');
   },
 
   style: function(req, res){
-      res.render('dashboard/salons/style');
+      res.render('dashboard/salons/salonstyles');
   },
 
-  edit : function(req, res){
-      res.render('dashboard/salons/edit');
+  newstyle: function(req,res){
+     res.render('dashboard/salons/style');
   },
 
   news : function(req, res){
-      res.render('dashboard/salons/news');
+      res.render('dashboard/salons/salonnews');
   },
   
+  newnews: function(req,res){
+     res.render('dashboard/salons/news');
+  },
   profile : function(req, res){
       res.render('dashboard/salons/profile');
 }

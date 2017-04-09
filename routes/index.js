@@ -22,23 +22,26 @@ router.get('/adminnews',         adminRoutes.news);
 /*
 Salon Routes
 */
-router.get('/salonindex',   salonRoutes.index);
-router.get('/newservice',   salonRoutes.service);
-router.get('/newproduct',   salonRoutes.product);
-router.get('/newstyle',     salonRoutes.style);
-router.get('/salonedit',    salonRoutes.edit);
-router.get('/news',         salonRoutes.news);
-router.get('/salonprofile', salonRoutes.profile);
+router.get('/salonindex',      salonRoutes.index);
+router.get('/service',         salonRoutes.service);
+router.get('/newservice',      salonRoutes.newservice);
+router.get('/product',         salonRoutes.product);
+router.get('/newproduct',      salonRoutes.newproduct);
+router.get('/style',           salonRoutes.style);
+router.get('/newstyle',        salonRoutes.newstyle);
+router.get('/news',            salonRoutes.news);
+router.get('/newnews',         salonRoutes.newnews);
+router.get('/salonprofile',    salonRoutes.profile);
 
 /*
 Search Routes
 */
-router.get('/find',   searchRoutes.index);
-router.get('/single', searchRoutes.single);
-router.get('/service', searchRoutes.service);
-router.get('/hair', searchRoutes.hair);
-router.get('/offer', searchRoutes.offer);
-router.get('/appointment', searchRoutes.appointment);
+router.get('/find',             searchRoutes.index);
+router.get('/single', 			searchRoutes.single);
+router.get('/service', 			searchRoutes.service);
+router.get('/hair', 			searchRoutes.hair);
+router.get('/offer',		    searchRoutes.offer);
+router.get('/appointment', 		searchRoutes.appointment);
 /*
 User Routes
 */
