@@ -4,16 +4,34 @@ module.exports = {
   },
 
   service: function(req, res){
-      res.render('dashboard/admin/service');
+      res.render('dashboard/admin/services');
+  },
+
+  adservice: function(req, res){
+      res.render('dashboard/admin/addservice');
   },
 
   product: function(req, res){
-      res.render('dashboard/admin/product');
+      res.render('dashboard/admin/products');
     },
+
+  adproduct: function(req, res){
+      res.render('dashboard/admin/addproduct');
+  },
+
   news : function(req, res){
       res.render('dashboard/admin/news');
   },
+
+  adnews: function(req, res){
+      res.render('dashboard/admin/addnews');
+  },
+
   salon : function(req, res){
-      res.render('dashboard/admin/salon');
+      res.render('dashboard/admin/salons');
+  },
+
+  adsalon: function(req, res){
+      res.render('dashboard/admin/addsalon');
   }
 };

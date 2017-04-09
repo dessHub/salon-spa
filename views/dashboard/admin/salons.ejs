@@ -1,8 +1,9 @@
 <% layout('dashboard/admin') %>
 <div class ="container">
 <div class="large-8 columns">
-<h class ="align-center">View Appointments</h>
+<h class ="align-center">View Salons</h>
 <div class="row collapse" id="appointment">
+<a class="small button success left " href="/adsalon">Add Salon</a>
 <table>
   <thead>
     <tr>
@@ -11,7 +12,7 @@
       <th>Phone Number</th>
       <th>Location</th>
       <th>Posts</th>
-      <th>Action</th>
+      <th>Options</th>
     </tr>
   </thead>
   <tbody>
@@ -21,7 +22,12 @@
       <td>0700000000</td>
       <td>Mombasa Road</td>
       <td>10</td>
-      <td>Delete</td>
+      <td>
+      <ul class="options">
+       <li><a href="adsalon" title="Edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Update</a></li>
+       <li><a href="#" title="Delete"><i class="fa fa-trash" aria-hidden="true"></i>delete</a></li>
+      </ul>
+      </td>
     </tr>
   </tbody>
 </table>
