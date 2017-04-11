@@ -2,8 +2,6 @@
 const express        = require('express');
 const router         = express.Router();
 const homeRoutes     = require('./home');
-const landRoutes     = require('./land');
-const userRoutes     = require('./user');
 const salonRoutes     = require('./salon');
 const searchRoutes     = require('./search');
 const adminRoutes     = require('./admin');
@@ -46,10 +44,5 @@ router.get('/service', 			searchRoutes.service);
 router.get('/hair', 			searchRoutes.hair);
 router.get('/offer',		    searchRoutes.offer);
 router.get('/appointment', 		searchRoutes.appointment);
-/*
-User Routes
-*/
-router.get('/userindex', userRoutes.index);
-router.get('/signup', userRoutes.signup);
-router.get('/userprofile', userRoutes.profile);
+
 module.exports=router;
