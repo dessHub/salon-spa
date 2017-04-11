@@ -2,11 +2,7 @@ module.exports = {
   index : (req, res)=> {
       res.render('dashboard/salons/index');
   },
-
-  admin : (req, res)=> {
-      res.render('dashboard/salons/admin');
-  },
-
+  
   service: (req, res)=> {
       res.render('dashboard/salons/salonservices');
   },
