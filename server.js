@@ -4,6 +4,16 @@ const path = require('path');
 const engine = require('ejs-mate');
 const ejs = require('ejs');
 const flash = require('connect-flash');
+const mongoose= require('mongoose');
+const bodyParser=require('body-parser');
+
+const db      ='mongodb://localhost:27017/salonhunt';
+mongoose.connect(db);
+
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({
+    extended:true
+}));
 
 // set static folder
 app.use(express.static(__dirname + '/assets'));

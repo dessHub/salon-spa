@@ -1,27 +1,29 @@
-salon-spa{
+{
   "name": "salon-spa",
   "version": "1.0.0",
-  "description": "beauty salon app",
+  "description": "A salon beauty app",
   "main": "server.js",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "connect-flash": "^0.1.1",
+    "ejs": "^2.5.6",
+    "ejs-mate": "^2.3.0",
+    "mongoose": "^4.9.4",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {},
   "scripts": {
-    "test": "nodemon",
-    "start": "nodemon server.js"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/CherutoMercy/salon-spa.git"
   },
-  "author": "mercy",
+  "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/CherutoMercy/salon-spa/issues"
   },
-  "homepage": "https://github.com/CherutoMercy/salon-spa#readme",
-  "dependencies": {
-    "connect-flash": "^0.1.1",
-    "ejs": "^2.5.5",
-    "ejs-mate": "^2.3.0",
-    "express": "^4.14.0",
-    "nodemon": "^1.11.0"
-  }
+  "homepage": "https://github.com/CherutoMercy/salon-spa#readme"
 }
