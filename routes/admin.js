@@ -1,37 +1,37 @@
 module.exports = {
-  index : function(req, res){
+  index : (req, res)=>{
       res.render('dashboard/admin/index');
   },
 
-  service: function(req, res){
+  service: (req, res)=> {
       res.render('dashboard/admin/services');
   },
 
-  adservice: function(req, res){
+  adservice: (req, res)=> {
       res.render('dashboard/admin/addservice');
   },
 
-  product: function(req, res){
+  product: (req, res)=> {
       res.render('dashboard/admin/products');
     },
 
-  adproduct: function(req, res){
+  adproduct: (req, res)=> {
       res.render('dashboard/admin/addproduct');
   },
 
-  news : function(req, res){
+  news : (req, res)=> {
       res.render('dashboard/admin/news');
   },
 
-  adnews: function(req, res){
+  adnews: (req, res)=> {
       res.render('dashboard/admin/addnews');
   },
 
-  salon : function(req, res){
+  salon : (req, res)=> {
       res.render('dashboard/admin/salons');
   },
 
-  adsalon: function(req, res){
+  adsalon: (req, res)=> {
       res.render('dashboard/admin/addsalon');
   }
 };

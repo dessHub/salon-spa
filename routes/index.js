@@ -1,12 +1,12 @@
 
-var express        = require('express');
-var router         = express.Router();
-var homeRoutes     = require('./home');
-var landRoutes     = require('./land');
-var userRoutes     = require('./user');
-var salonRoutes     = require('./salon');
-var searchRoutes     = require('./search');
-var adminRoutes     = require('./admin');
+const express        = require('express');
+const router         = express.Router();
+const homeRoutes     = require('./home');
+const landRoutes     = require('./land');
+const userRoutes     = require('./user');
+const salonRoutes     = require('./salon');
+const searchRoutes     = require('./search');
+const adminRoutes     = require('./admin');
 
 router.get('/',        homeRoutes.index);
 

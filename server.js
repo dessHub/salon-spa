@@ -1,9 +1,9 @@
-var express = require('express');
-var app = express();
-var path = require('path');
-var engine = require('ejs-mate');
-var ejs = require('ejs');
-var flash = require('connect-flash');
+const express = require('express');
+const app = express();
+const path = require('path');
+const engine = require('ejs-mate');
+const ejs = require('ejs');
+const flash = require('connect-flash');
 
 // set static folder
 app.use(express.static(__dirname + '/assets'));
@@ -20,7 +20,7 @@ app.set('view engine', 'ejs');
 app.use(flash());
 
 
-var routes = require('./routes/index.js');
+const routes = require('./routes/index.js');
 app.use(routes);
 
 app.set('port', (process.env.PORT || 5000));

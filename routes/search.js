@@ -1,30 +1,30 @@
 module.exports = {
-  index : function(req, res){
+  index : (req, res)=> {
       res.render('search/pages/index',{
       });
   },
   
-  single : function(req, res){
+  single : (req, res)=> {
       res.render('search/pages/single',{
       });
   },
 
-  service : function(req, res){
+  service : (req, res)=> {
       res.render('search/pages/services',{
       });
   },
 
-  hair : function(req, res){
+  hair : (req, res)=> {
       res.render('search/pages/trends',{
       });
   },
 
-  offer : function(req, res){
+  offer : (req, res)=> {
       res.render('search/pages/offers',{
       });
   },
 
-  appointment : function(req, res){
+  appointment : (req, res)=> {
       res.render('search/pages/appointment',{
       });
   }

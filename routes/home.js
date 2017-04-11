@@ -1,10 +1,10 @@
 module.exports = {
-  index : function(req, res){
+  index :(req, res)=> {
       res.render('index',{
       });
   },
 
-   contact : function(req, res){
+   contact :(req, res)=> {
       res.render('contact',{
       });
   }
