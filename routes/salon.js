@@ -1,15 +1,36 @@
+const Service     = require('../models/service');
+
+
+
 module.exports = {
   index : (req, res)=> {
-      res.render('dashboard/salons/index');
-  },
-  
-  service: (req, res)=> {
-      res.render('dashboard/salons/salonservices');
+   res.render('dashboard/salons/index');
   },
 
-  newservice: (req,res)=> {
-     res.render('dashboard/salons/service');
+ service: (req,res)=> {
+    Service.find({},(err,service)=>{
+      if(err) res.send(err);
+      res.render('dashboard/salons/salonservices', {
+         service:service
+      });
+    });
   },
+  
+  newservice: (req, res)=> {
+    const newservice = new Service();
+    newservice.title = req.body.title;
+    newservice.description = req.body.description;
+    //newservice.img.data = fs.readFileSync(req.files.userPhoto.path)
+    //newservice.img.contentType - '';
+
+    newservice.save((err,service)=>{
+      if(err)res.send(err);
+      console.log(service)
+      res.redirect('/service');
+    });
+      
+  },
+
 
   product: (req, res)=> {
       res.render('dashboard/salons/salonproducts');

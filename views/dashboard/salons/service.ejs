@@ -1,5 +1,5 @@
 <% layout('dashboard/salonadmin') %>
- <form id="Salon-form" method="post" class="form-horizontal" action="">
+ <form id="Salon-form" method="post" class="form-horizontal" action="/service">
   <div class="row collapse">
    <div class="large-8 small-12 columns">
    <h>Services</h>
@@ -8,7 +8,7 @@
         <label for="Service Title">Title</label>
         </div>
          <div class="small-9 columns">
-          <input type="text" required class="form-control" id="Service Title" name="title"/>
+          <input type="text" required class="form-control" id="title" name="title"/>
         </div>
         </div>
 
@@ -17,7 +17,7 @@
         <label for="Service Description">Description</label>
          </div>
          <div class="small-9 columns">
-          <textarea cols="42" row collapses="5" required class="form-control" id="Service Description" name="desc" ></textarea>
+          <textarea cols="42" row collapses="5" required class="form-control" id="description" name="description" ></textarea>
         </div>
         </div>
 
@@ -35,7 +35,7 @@
     <div class="small-3 columns">
     </div>
     <div class="small-9 columns ">
-       <a href="/service" class="success button left">Post</a>
+          <button class="success button left">Post</button>
       </div>
       </div>
 

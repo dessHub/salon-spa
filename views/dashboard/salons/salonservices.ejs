@@ -7,6 +7,7 @@
 <table>
   <thead>
     <tr>
+      <th>#</th>
       <th>Title</th>
       <th>Description</th>
       <th>Image</th>
@@ -14,9 +15,11 @@
     </tr>
   </thead>
   <tbody>
+  <% service.forEach(function(service, index){ %>
     <tr>
-      <td>New Trend</td>
-      <td>New abuja braids</td>
+    <th scope="row"><%= index + 1 %></th>
+      <td><%= service.title  %></td>
+      <td><%= service.description  %></td>
       <td>img.jpg</td>
       <td>          
       <ul class="options">
@@ -25,6 +28,7 @@
       </ul>
       </td>
     </tr>
+       <%});%>
   </tbody>
 </table>
 </div>

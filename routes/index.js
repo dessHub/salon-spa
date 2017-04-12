@@ -26,7 +26,7 @@ Salon Routes
 */
 router.get('/salonindex',      salonRoutes.index);
 router.get('/service',         salonRoutes.service);
-router.get('/newservice',      salonRoutes.newservice);
+router.post('/newservice',     salonRoutes.newservice);
 router.get('/product',         salonRoutes.product);
 router.get('/newproduct',      salonRoutes.newproduct);
 router.get('/style',           salonRoutes.style);

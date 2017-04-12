@@ -6,9 +6,17 @@ const ejs = require('ejs');
 const flash = require('connect-flash');
 const mongoose= require('mongoose');
 const bodyParser=require('body-parser');
+//const fs = require(‘fs’);
+const multer = require('multer');
 
 const db      ='mongodb://localhost:27017/salonhunt';
 mongoose.connect(db);
+
+/*app.use(multer({ dest: './uploads',
+ rename:(fieldname, filename)=> {
+   return filename;
+ },
+}));*/
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({

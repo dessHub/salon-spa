@@ -1,11 +1,11 @@
 const mongoose  =require('mongoose');
 const Schema    =mongoose.Schema;
 
-const StyleSchema = new Schema({
+const ServiceSchema = new Schema({
     title: {type:String, index:true},
     description:{type:String},
-    photo:    {type:String},
+    img: { data: Buffer, contentType: String }
   });
 
-module.exports = mongoose.model('style', StyleSchema)
+module.exports = mongoose.model('service', ServiceSchema)
 
