@@ -6,17 +6,12 @@ const ejs = require('ejs');
 const flash = require('connect-flash');
 const mongoose= require('mongoose');
 const bodyParser=require('body-parser');
-//const fs = require(‘fs’);
+const fs = require('fs');
 const multer = require('multer');
 
+//mongoose.Promise = global.Promise;
 const db      ='mongodb://localhost:27017/salonhunt';
 mongoose.connect(db);
-
-/*app.use(multer({ dest: './uploads',
- rename:(fieldname, filename)=> {
-   return filename;
- },
-}));*/
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({
@@ -25,9 +20,11 @@ app.use(bodyParser.urlencoded({
 
 // set static folder
 app.use(express.static(__dirname + '/assets'));
+app.use('/uploads', express.static('uploads'));
 app.use('/bower_components',  express.static(__dirname + '/bower_components'));
 app.use(express.static(path.join(__dirname, 'views')));
-app.use('/uploads', express.static('uploads'));
+app.use('/postservice', express.static('uploads'));
+
 
 
 //Create EJS Engine view
@@ -39,6 +36,7 @@ app.use(flash());
 
 
 const routes = require('./routes/index.js');
+ require('./routes/upload.js')(app);
 app.use(routes);
 
 app.set('port', (process.env.PORT || 5000));
