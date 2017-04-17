@@ -5,11 +5,18 @@ const homeRoutes     = require('./home');
 const salonRoutes     = require('./salon');
 const searchRoutes     = require('./search');
 const adminRoutes     = require('./admin');
+const newsRoutes     = require('./news');
+const servicesRoutes     = require('./services');
+const productsRoutes     = require('./products');
+const stylesRoutes     = require('./styles');
 
 const multer = require('multer');
 const upload = multer({dest:'uploads/'});
 const serviceupload = multer({dest:'uploads/'});
 const productupload = multer({dest:'uploads/'});
+const styleupload   = multer({dest:'uploads/'});
+const newsupload   = multer({dest:'uploads/'});
+const salonupload   = multer({dest:'uploads/'});
 const fs = require('fs');
 
 router.get('/',        homeRoutes.index);
@@ -33,27 +40,38 @@ Salon Routes
 */
 router.get('/salonindex',           salonRoutes.index);
 
-router.post('/uploadservice',       serviceupload.single('image'), salonRoutes.postservice);             
-router.get('/service',              salonRoutes.services);
-router.get('/addservice',           salonRoutes.addservice);
-router.get('/editservice/:id',      salonRoutes.editservice);
-router.post('/updateservice:id',    salonRoutes.updateservice);
-router.get('/servicedelete/:id',    salonRoutes.deleteservice);
+router.post('/uploadservice',       serviceupload.single('image'), servicesRoutes.postservice);             
+router.get('/service',              servicesRoutes.services);
+router.get('/addservice',           servicesRoutes.addservice);
+router.get('/editservice/:id',      servicesRoutes.editservice);
+router.post('/updateservice:id',    servicesRoutes.updateservice);
+router.get('/servicedelete/:id',    servicesRoutes.deleteservice);
 
-router.get('/product',         salonRoutes.product);
-router.post('/uploadproduct',  productupload.single('image'), salonRoutes.postproduct);
-router.get('/newproduct',      salonRoutes.newproduct);
-router.get('/editproduct/:id',      salonRoutes.editproduct);
-router.post('/updateproduct:id',    salonRoutes.updateproduct);
-router.get('/productdelete/:id',    salonRoutes.deleteproduct);
+router.get('/product',         productsRoutes.product);
+router.post('/uploadproduct',  productupload.single('image'), productsRoutes.postproduct);
+router.get('/newproduct',      productsRoutes.newproduct);
+router.get('/editproduct/:id',      productsRoutes.editproduct);
+router.post('/updateproduct:id',    productsRoutes.updateproduct);
+router.get('/productdelete/:id',    productsRoutes.deleteproduct);
 
-router.get('/style',           salonRoutes.style);
-router.get('/newstyle',        salonRoutes.newstyle);
+router.get('/style',           stylesRoutes.style);
+router.post('/uploadstyle',  styleupload.single('image'), stylesRoutes.poststyle);
+router.get('/newstyle',        stylesRoutes.newstyle);
+router.get('/editstyle/:id',      stylesRoutes.editstyle);
+router.post('/updatestyle:id',    stylesRoutes.updatestyle);
+router.get('/styledelete/:id',    stylesRoutes.deletestyle);
 
-router.get('/news',            salonRoutes.news);
-router.get('/newnews',         salonRoutes.newnews);
+router.get('/news',            newsRoutes.news);
+router.post('/uploadnews',  newsupload.single('image'), newsRoutes.postnews);
+router.get('/newnews',         newsRoutes.newnews);
+router.get('/editnews/:id',      newsRoutes.editnews);
+router.post('/updatenews:id',    newsRoutes.updatenews);
+router.get('/newsdelete/:id',    newsRoutes.deletenews);
 
 router.get('/salonprofile',    salonRoutes.profile);
+router.post('/uploadsalon',  salonupload.single('image'), salonRoutes.postsalon);
+router.get('/editsalon/:id',      salonRoutes.editsalon);
+router.post('/updatesalon:id',    salonRoutes.updatesalon);
 
 /*
 Search Routes

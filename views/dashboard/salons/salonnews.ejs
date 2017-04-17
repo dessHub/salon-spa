@@ -1,12 +1,13 @@
 <% layout('dashboard/salonadmin') %>
 <div class ="container">
 <div class="large-8 columns">
-<h class ="align-center">News</h>
+<h class ="align-center">Services</h>
 <div class="row collapse" id="appointment">
 <a class="small button success left " href="/newnews">Add News</a>
 <table>
   <thead>
     <tr>
+      <th>#</th>
       <th>Title</th>
       <th>Description</th>
       <th>Image</th>
@@ -14,19 +15,24 @@
     </tr>
   </thead>
   <tbody>
+  <% news.forEach(function(news, index){ %>
     <tr>
-      <td>New Trend</td>
-      <td>New abuja braids</td>
-      <td>img.jpg</td>
+    <th scope="row"><%= index + 1 %></th>
+      <td><%= news.title  %></td>
+      <td><%= news.description  %></td>
+      <td><a href=""><img class="thumbnail" src="/<%= news.img %>" height="60px" width="60px"></a> </td>
       <td>          
       <ul class="options">
-        <li><a href="/newnews" title="Edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Update</a></li>
-        <li><a href="#" title="Delete"><i class="fa fa-trash" aria-hidden="true"></i>delete</a></li>
+       <li><a href="/editnews/<%=news._id %>" title="Edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Update</a></li>
+       <li><a href="/newsdelete/<%=news._id %>" title="Delete"><i class="fa fa-trash" aria-hidden="true"></i>delete</a></li>
       </ul>
       </td>
     </tr>
+       <%});%>
   </tbody>
 </table>
+
+
 </div>
 </div>
 </div>

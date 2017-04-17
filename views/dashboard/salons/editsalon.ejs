@@ -1,15 +1,14 @@
 <% layout('dashboard/salonadmin') %>
- <form id="Uploadform" enctype="multipart/form-data" method="post" class="form-horizontal" action="/uploadsalon">
+ <form id="Salon-form" method="post" class="form-horizontal" action="/updatesalon<%= salon.id  %>">
   <div class="row collapse">
    <div class="large-8 small-12 columns">
    <h>Salon Details</h>
-   <a href="/editsalon/<%= salon._id %>" title="Edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Update</a>
      <div class="row collapse">
         <div class="small-3 columns">
         <label for="Salon Name">Title</label>
         </div>
          <div class="small-9 columns">
-          <input type="text" required class="form-control" id="name" name="name"/>
+          <input type="text" required class="form-control" value="<%= salon.name  %>" id="name" name="name"/>
         </div>
         </div>
 
@@ -18,7 +17,7 @@
         <label for="Salon Description">Description</label>
          </div>
          <div class="small-9 columns">
-          <textarea cols="42" row collapses="5" required class="form-control" placeholder="" id="description" name="description" ></textarea>
+          <textarea cols="42" row collapses="5" required class="form-control" placeholder="" id="description" name="description" ><%= salon.description  %></textarea>
         </div>
         </div>
 
@@ -27,7 +26,7 @@
         <label for="Salon Location">Location</label>
          </div>
          <div class="small-9 columns">
-          <textarea cols="42" row collapses="5" required class="form-control" placeholder="" id="location" name="location" ></textarea>
+          <textarea cols="42" row collapses="5" required class="form-control" placeholder="" id="location" name="location" ><%= salon.location  %></textarea>
         </div>
         </div>
 
@@ -36,7 +35,7 @@
         <label for="Salon Hours">Working Hours</label>
          </div>
          <div class="small-9 columns">
-          <textarea cols="42" row collapses="5" required class="form-control" placeholder="" id="hours" name="hours" ></textarea>
+          <textarea cols="42" row collapses="5" required class="form-control" placeholder="" id="hours" name="hours" ><%= salon.hours  %></textarea>
         </div>
         </div>
 
@@ -44,8 +43,9 @@
         <div class="small-3 columns">
         <label for="Salon Image">Salon Image</label>
         </div>
-         <div class="small-9 columns">         
-          <input type="file" name="image" id="img">
+         <div class="small-9 columns">          
+          <label for="exampleFileUpload" class=""></label>
+          <input type="file" id="exampleFileUpload" class="" value="<%= salon.img  %>">
          </div>
     </div>
 
