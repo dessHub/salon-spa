@@ -8,6 +8,8 @@ const adminRoutes     = require('./admin');
 
 const multer = require('multer');
 const upload = multer({dest:'uploads/'});
+const serviceupload = multer({dest:'uploads/'});
+const productupload = multer({dest:'uploads/'});
 const fs = require('fs');
 
 router.get('/',        homeRoutes.index);
@@ -30,16 +32,20 @@ router.get('/adnews',            adminRoutes.adnews);
 Salon Routes
 */
 router.get('/salonindex',           salonRoutes.index);
-router.post('/uploadservice',       upload.single('image'), salonRoutes.postservice);             
+
+router.post('/uploadservice',       serviceupload.single('image'), salonRoutes.postservice);             
 router.get('/service',              salonRoutes.services);
 router.get('/addservice',           salonRoutes.addservice);
-router.post('/postservice',         salonRoutes.postservice);
 router.get('/editservice/:id',      salonRoutes.editservice);
 router.post('/updateservice:id',    salonRoutes.updateservice);
 router.get('/servicedelete/:id',    salonRoutes.deleteservice);
 
 router.get('/product',         salonRoutes.product);
+router.post('/uploadproduct',  productupload.single('image'), salonRoutes.postproduct);
 router.get('/newproduct',      salonRoutes.newproduct);
+router.get('/editproduct/:id',      salonRoutes.editproduct);
+router.post('/updateproduct:id',    salonRoutes.updateproduct);
+router.get('/productdelete/:id',    salonRoutes.deleteproduct);
 
 router.get('/style',           salonRoutes.style);
 router.get('/newstyle',        salonRoutes.newstyle);
