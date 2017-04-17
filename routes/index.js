@@ -29,13 +29,13 @@ router.get('/adnews',            adminRoutes.adnews);
 /*
 Salon Routes
 */
-router.get('/salonindex',      salonRoutes.index);
-router.post('/service/photo',        salonRoutes.servicephoto);             
+router.get('/salonindex',           salonRoutes.index);
+router.post('/uploadservice',       upload.single('image'), salonRoutes.postservice);             
 router.get('/service',              salonRoutes.services);
 router.get('/addservice',           salonRoutes.addservice);
 router.post('/postservice',         salonRoutes.postservice);
 router.get('/editservice/:id',      salonRoutes.editservice);
-router.post('/updateservice:id',       salonRoutes.updateservice);
+router.post('/updateservice:id',    salonRoutes.updateservice);
 router.get('/servicedelete/:id',    salonRoutes.deleteservice);
 
 router.get('/product',         salonRoutes.product);

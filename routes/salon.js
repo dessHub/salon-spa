@@ -2,9 +2,9 @@ const Service     = require('../models/service');
 const multer = require('multer');
 const fs = require('fs');
 const path = require('path');
-//const upload = multer({dest : '/uploads'});
+const upload = multer({ dest: 'uploads/' });
 
-const storage =multer.diskStorage({
+/*const storage =multer.diskStorage({
   destination:(req, file, callback)=>{
     callback(null, './uploads');
   },
@@ -15,6 +15,7 @@ const storage =multer.diskStorage({
 });
 
 const upload =multer({ storage : storage}).single('userPhoto');
+*/
 
 module.exports = {
   index : (req, res)=> {
@@ -37,77 +38,37 @@ module.exports = {
     });
   },
 
-  servicephoto: (req,res)=>{
-    upload(req,res, (err)=>{
-      if(err){
-        return res.end("Error uploading file");
-      }
+  postservice: (req,res)=>{
+      const image = req.image;
+      const tmp_path = req.file.path;
       console.log(req.file);
-      console.log(req.file.path);
-    //const image = req.userPhoto;
-    //console.log(image);
-    const tmp_path = req.file.path;
 
-
-                 /** The original name of the uploaded file
+       /** The original name of the uploaded file
            stored in the variable "originalname". **/
-    const target_path = 'uploads/' + req.file.originalname;
+       const target_path = 'uploads/' + req.file.originalname;
        /** A better way to copy the uploaded file. **/
-    const src = fs.createReadStream(tmp_path);
-    const dest = fs.createWriteStream(target_path);
-    src.pipe(dest);
-    fs.unlink(tmp_path); //deleting the tmp_path
+       const src = fs.createReadStream(tmp_path);
+       const dest = fs.createWriteStream(target_path);
+       src.pipe(dest);
+       fs.unlink(tmp_path); //deleting the tmp_path
 
-    const service = new Service();
-    service.title = req.body.title;
-    service.description = req.body.description;
-    service.img = target_path;
+       console.log(target_path);
+       const service = new Service();
+       service.title = req.body.title;
+       service.description = req.body.description;
+       service.img = target_path;
+       console.log(service.title);
+        
+       service.save((err,service)=>{
+        if(err) return (err);
+          
+          
+        console.log(service)
+        res.redirect('/service');
+      });
 
-    service.save((err,service)=>{
-      if(err)res.send(err);
-      console.log(service)
-      res.redirect('/service');
-    });
-    });
   },
-  
-/*router.post('/api/photo',function(req,res){
- var newItem = new Item();
- newItem.img.data = fs.readFileSync(req.files.userPhoto.path)
- newItem.img.contentType = 'image/png';
- newItem.save();
-});*/
 
-  postservice: (req, res, next)=> {
-    
-    const title = req.body.title;
-    console.log(title);
-    const image = req.userPhoto;
-    console.log(image);
-    const tmp_path = req.file.path;
-
-
-           /** The original name of the uploaded file
-           stored in the variable "originalname". **/
-    const target_path = 'uploads/' + req.file.originalname;
-       /** A better way to copy the uploaded file. **/
-    const src = fs.createReadStream(tmp_path);
-    const dest = fs.createWriteStream(target_path);
-    src.pipe(dest);
-    fs.unlink(tmp_path); //deleting the tmp_path
-
-    const service = new Service();
-    service.title = req.body.title;
-    service.description = req.body.description;
-    service.img = tmp_path;
-
-    service.save((err,service)=>{
-      if(err)res.send(err);
-      console.log(service)
-      res.redirect('/service');
-    });
-      
-  },
   
   deleteservice : (req, res)=>{
     Service.findOne({_id:req.params.id}, (err, service)=>{

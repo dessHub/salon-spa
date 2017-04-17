@@ -36,7 +36,6 @@ app.use(flash());
 
 
 const routes = require('./routes/index.js');
- require('./routes/upload.js')(app);
 app.use(routes);
 
 app.set('port', (process.env.PORT || 5000));
