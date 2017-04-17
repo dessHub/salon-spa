@@ -1,14 +1,14 @@
 <% layout('dashboard/salonadmin') %>
- <form id="Salon-form" method="post" class="form-horizontal" action="">
+ <form id="Uploadform" enctype="multipart/form-data" method="post" class="form-horizontal" action="/uploadproduct">
   <div class="row collapse">
    <div class="large-8 small-12 columns">
-   <h>Products</h>
+   <h>Services</h>
      <div class="row collapse">
         <div class="small-3 columns">
         <label for="Product Title">Title</label>
         </div>
          <div class="small-9 columns">
-          <input type="text" required class="form-control" id="Product Title" name="title"/>
+          <input type="text" required class="form-control" id="title" name="title"/>
         </div>
         </div>
 
@@ -17,17 +17,17 @@
         <label for="Product Description">Description</label>
          </div>
          <div class="small-9 columns">
-          <textarea cols="42" row collapses="5" required class="form-control" id="Product Description" name="desc" ></textarea>
+          <textarea cols="42" row collapses="5" required class="form-control" id="description" name="description" ></textarea>
         </div>
         </div>
 
         <div class="row collapse">
         <div class="small-3 columns">
-        <label for="Product Image">Product Image</label>
+        <label for="img">Product Image</label>
         </div>
          <div class="small-9 columns">          
-          <label for="exampleFileUpload" class="small button success left">Upload File</label>
-          <input type="file" id="exampleFileUpload" class="show-for-sr">
+          <label for="img">Upload File</label>
+          <input type="file" name="image" id="img">
          </div>
     </div>
 
@@ -35,7 +35,7 @@
     <div class="small-3 columns">
     </div>
     <div class="small-9 columns ">
-       <a href="/product" class="success button left">Post</a>
+          <button class="success button left">Post</button>
       </div>
       </div>
 
