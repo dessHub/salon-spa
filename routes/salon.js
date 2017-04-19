@@ -1,4 +1,5 @@
 const Salon     = require('../models/salon');
+const Appointment     = require('../models/appoinment');
 const multer = require('multer');
 const fs = require('fs');
 const path = require('path');
@@ -6,10 +7,10 @@ const upload = multer({ dest: 'uploads/' });
 
 module.exports = {
 index : (req, res)=> {
-  Salon.find({},(err,salon)=>{
+  Appointment.find({},(err,appointment)=>{
    if(err) res.send(err);
    res.render('dashboard/salons/index', {
-    salon : salon
+    appointment : appointment
    });
   });
   },
