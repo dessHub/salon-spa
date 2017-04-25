@@ -8,6 +8,10 @@ const mongoose= require('mongoose');
 const bodyParser=require('body-parser');
 const fs = require('fs');
 const multer = require('multer');
+const morgan       = require('morgan');
+const session = require('express-session');
+const expressValidator = require('express-validator');
+const passport = require('passport');
 
 //mongoose.Promise = global.Promise;
 const db      ='mongodb://localhost:27017/salonhunt';
@@ -18,6 +22,8 @@ app.use(bodyParser.urlencoded({
     extended:true
 }));
 
+app.use(expressValidator()); 
+
 // set static folder
 app.use(express.static(__dirname + '/assets'));
 app.use('/uploads', express.static('uploads'));
@@ -26,13 +32,34 @@ app.use(express.static(path.join(__dirname, 'views')));
 app.use('/postservice', express.static('uploads'));
 
 
+app.use(morgan('dev'));
+app.use(session({ secret: 'ilovescotchscotchyscotchscotch' }));
+app.use(session({
+  resave    : true,
+  saveUninitialized:true,
+  secret: 'ilovescotchscotchyscotchscotch',
+  //store   : new mongostore({ url :db.getDB(env), autoReconnect:true}),
+  cookie : { maxAge: 180*60*1000}
+}));
+
 
 //Create EJS Engine view
 app.set('view engine', 'html');
 app.engine('ejs', engine);
 app.set('view engine', 'ejs');
 
+app.use(passport.initialize());
+
+app.use(passport.session());
+
 app.use(flash());
+
+app.use(function(req,res,next){
+  res.locals.user   = req.user;
+  res.locals.message = req.flash();
+  res.locals.session = req.session;
+  next();
+});
 
 
 const routes = require('./routes/index.js');

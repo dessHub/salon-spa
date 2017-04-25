@@ -9,13 +9,8 @@ var UserSchema = Schema({
     password: { type: String },
     fname: { type: String },
     lname: { type: String },
+    phone:{ type: Number},
     email:    { type: String },
-    companyname: {type: String},
-    country:     {type:String},
-    address:     {type:String},
-    town:        {type:String},
-    county:      {type:String},
-    postalcode:  {type: Number},
     role:     [{type: Schema.Types.ObjectId, ref:Role }]
 });
 

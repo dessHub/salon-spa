@@ -27,20 +27,34 @@
 
 <section id="signup">
 <div class ="container">
+ <form action="/signup" method="post">
+            <% if(errors.length>0){ %>
+              <% for(var i=0; i<errors.length; i++){ %>
+                <p><%= errors[i].msg %></p>
+              <% } %>
+            <% } %>
+            <% if(message.length>0){ %>
+              <% for(var i=0; i<message.length; i++){ %>
+                <p><%= message[i] %></p>
+              <% } %>
+            <% } %>
 <div class="section" style="padding-top:60px;">
        <p class="center-align" style="font-size:35px; line-height:0.3em; ">Signup</p>
         <div class="row">
           <div class="input-field s6 m6 l6">
-            <input id="Username" type="text" name="username" class="validate"><label for="first_name2">Username</label>
+            <input id="Username" type="text" name="username" class="validate"><label for="username">Username</label>
           </div>
           <div class="input-field s6 m6 l6">
-            <input  id="password" type="password" name="password" class="validate"><label for="second_name2">Password</label>
+            <input id="Username" type="text" name="fname" class="validate"><label for="fname">First Name</label>
           </div>
           <div class="input-field s6 m6 l6">
-            <input  id="password" type="password" name="confirmpassword" class="validate"><label for="second_name2">Confirm Password</label>
+            <input id="Username" type="text" name="lname" class="validate"><label for="lname">Last Name</label>
           </div>
           <div class="input-field s6 m6 l6">
-            <input  id="pno" type="text" class="validate"><label for="pno">Phone Number</label>
+            <input  id="phone" type="text" class="validate"><label for="phone">Phone Number</label>
+          </div>
+          <div class="input-field s6 m6 l6">
+            <input  id="email" type="email" class="validate"><label for="email">Email</label>
           </div>
           <div class="input-field s6 m6 l6">
             <select name="category">
@@ -48,14 +62,22 @@
               <option value="hair_stylist">Hair Stylist</option>
               <option value="makeup_artist">Cosmetic supplier</option>
             </select>
-          </div></br></br>
+          </div>
           <div class="input-field s6 m6 l6">
-            <a href="/profile#!" class="modal-action modal-close waves-effect waves-red btn-flat ">Submit</a>    Already registered  <a href="#modal2">Login</a>
+            <input  id="password" type="password" name="password" class="validate"><label for="second_name2">Password</label>
+          </div>
+          <div class="input-field s6 m6 l6">
+            <input  id="password" type="password" name="confirmpassword" class="validate"><label for="second_name2">Confirm Password</label>
+          </div>
+         </br></br>
+          <div class="input-field s6 m6 l6">
+            <button class="modal-action modal-close waves-effect waves-red btn-flat ">Submit</button>    Already registered  <a href="#modal2">Login</a>
           </div>
         </div>
   <div class="modal-footer">
 </div>
 </div>
+</form>
 </div>
 </section>
 

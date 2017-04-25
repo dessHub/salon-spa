@@ -6,45 +6,47 @@ module.exports    = {
     const message=req.flash('message');
     console.log(message);
     const errors='';
-    res.render('signup', {
+    res.render('register', {
         errors:errors,
         message : req.flash('message'),
         title   : "Sign Up",
     });
   },
 
-  create : function(req, res){
-   Role.findOne({ name:'customer'}, function(err, role){
+  create : (req, res)=>{
+   Role.findOne({ name:'customer'}, (err, role)=>{
      if(err) return(err);
 
       req.checkBody('fname','First name is required').notEmpty();
       req.checkBody('lname','Last name is required').notEmpty();
       req.checkBody('email','Email is required').notEmpty();
+      req.checkBody('phone','Phone Number is required').notEmpty();
       req.checkBody('password','Password is required').notEmpty();
       req.checkBody('password2','Please you need to confirm your password').notEmpty();
       req.checkBody('password2', 'The passwords do not match').equals(req.body.password);
       req.checkBody('email','Email is invalid').isEmail();
 
-      var errors = req.validationErrors();
+      const errors = req.validationErrors();
       if(errors){
-       res.render('pages/register',{
+       res.render('register',{
           errors:errors,
           title:'Sign up',
           message: req.flash('signupMess')
         });
       }
 
-      var user      = new User();
+      const user      = new User();
       user.fname    = req.body.fname;
       user.lname    = req.body.lname;
       user.email    = req.body.email;
+      user.phone    = req.body.phone;
       user.username = req.body.username;
       user.password = req.body.password;
       //user.role     = role._id;
 
-      User.getUserByUsername({username: req.body.username}, function(err, foundUser, done){
-        var message = 'That Username is already taken';
-        var errors  = '';
+      User.getUserByUsername({username: req.body.username},(err, foundUser, done)=>{
+        const message = 'That Username is already taken';
+        const errors  = '';
         if(err) throw err;
 
         if(foundUser){
@@ -53,10 +55,10 @@ module.exports    = {
           res.redirect('/register');
         } else {
           console.log('You have no register errors');
-          User.createUser(user,function(err, user){
+          User.createUser(user,(err, user)=>{
             if (err) throw err;
 
-            req.login(user, function(err){
+            req.login(user,(err)=>{
               if (!err){
                 console.log(user);
                 res.redirect('/');

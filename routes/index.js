@@ -44,7 +44,6 @@ router.get('/login',           sessionRoutes.new);
 router.post('/login',          sessionRoutes.create);
 router.get('/logout',          sessionRoutes.delete);
 
-
 /*
 Admin Routes
 */
