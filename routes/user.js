@@ -1,12 +1,12 @@
-var User          = require('../models/user');
-var Role          = require('../models/role');
+const User          = require('../models/user');
+const Role          = require('../models/role');
 
 module.exports    = {
-  new : function(req, res){
-    var message=req.flash('message');
+  new : (req, res)=>{
+    const message=req.flash('message');
     console.log(message);
-    var errors='';
-    res.render('pages/register', {
+    const errors='';
+    res.render('signup', {
         errors:errors,
         message : req.flash('message'),
         title   : "Sign Up",

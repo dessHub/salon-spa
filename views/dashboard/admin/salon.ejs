@@ -1,0 +1,70 @@
+<% layout('dashboard/admin') %>
+ <form id="Uploadform" enctype="multipart/form-data" method="post" class="form-horizontal" action="/uploadadminsalon">
+  <div class="row collapse">
+   <div class="large-8 small-12 columns">
+   <h>Salon Details</h>
+        <div class="row collapse">
+        <div class="small-3 columns">
+        <label for="Salon Name">Name</label>
+         </div>
+         <div class="small-9 columns">
+          <textarea cols="42" row collapses="5" required class="form-control" placeholder="" id="name" name="name" ></textarea>
+        </div>
+        </div>
+
+        <div class="row collapse">
+        <div class="small-3 columns">
+        <label for="Salon Description">Description</label>
+         </div>
+         <div class="small-9 columns">
+          <textarea cols="42" row collapses="5" required class="form-control" placeholder="" id="description" name="description" ></textarea>
+        </div>
+        </div>
+
+        <div class="row collapse">
+        <div class="small-3 columns">
+        <label for="Salon Location">Location</label>
+         </div>
+         <div class="small-9 columns">
+          <textarea cols="42" row collapses="5" required class="form-control" placeholder="" id="location" name="location" ></textarea>
+        </div>
+        </div>
+
+        <div class="row collapse">
+        <div class="small-3 columns">
+        <label for="Salon Contacts">Contacts</label>
+         </div>
+         <div class="small-9 columns">
+          <textarea cols="42" row collapses="5" required class="form-control" placeholder="" id="contacts" name="contacts" ></textarea>
+        </div>
+        </div>
+
+        <div class="row collapse">
+        <div class="small-3 columns">
+        <label for="Salon Hours">Working Hours</label>
+         </div>
+         <div class="small-9 columns">
+          <textarea cols="42" row collapses="5" required class="form-control" placeholder="" id="hours" name="hours" ></textarea>
+        </div>
+        </div>
+
+        <div class="row collapse">
+        <div class="small-3 columns">
+        <label for="Salon Image">Salon Image</label>
+        </div>
+         <div class="small-9 columns">         
+          <input type="file" name="image" id="img">
+         </div>
+    </div>
+
+   <div class="row collapse">
+    <div class="small-3 columns">
+    </div>
+    <div class="small-9 columns ">
+          <button class="success button left">Post</button>
+      </div>
+      </div>
+
+    </div>
+  </form>
+   

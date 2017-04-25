@@ -26,7 +26,7 @@ module.exports = {
         res.redirect('/find');
       });
 
-  }
+  },
 
   deleteappointment : (req, res)=>{
     Appointment.findOne({_id:req.params.id}, (err, appointment)=>{

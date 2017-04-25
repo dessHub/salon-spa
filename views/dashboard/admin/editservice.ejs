@@ -1,5 +1,5 @@
 <% layout('dashboard/admin') %>
- <form id="Salon-form" method="post" class="form-horizontal" action="">
+ <form id="Salon-form" method="post" class="form-horizontal" action="/updateadminservice<%= adminservice.id  %>">
   <div class="row collapse">
    <div class="large-8 small-12 columns">
    <h>Services</h>
@@ -8,7 +8,7 @@
         <label for="Service Title">Title</label>
         </div>
          <div class="small-9 columns">
-          <input type="text" required class="form-control" id="Service Title" name="title"/>
+          <input type="text" required class="form-control" value="<%= adminservice.title  %>" id="title" name="title"/>
         </div>
         </div>
 
@@ -17,17 +17,17 @@
         <label for="Service Description">Description</label>
          </div>
          <div class="small-9 columns">
-          <textarea cols="42" row collapses="5" required class="form-control" id="Service Description" name="desc" ></textarea>
+          <textarea cols="42" row collapses="5" required class="form-control" placeholder="" id="description" name="description" ><%= adminservice.description  %></textarea>
         </div>
         </div>
 
         <div class="row collapse">
         <div class="small-3 columns">
-        <label for="ServiceImage">Service Image</label>
+        <label for="Service Image">Service Image</label>
         </div>
          <div class="small-9 columns">          
-          <label for="exampleFileUpload" class="small button success left">Upload File</label>
-          <input type="file" id="exampleFileUpload" class="show-for-sr">
+          <label for="exampleFileUpload" class=""></label>
+          <input type="file" id="exampleFileUpload" class="" value="<%= adminservice.img  %>">
          </div>
     </div>
 
@@ -35,10 +35,9 @@
     <div class="small-3 columns">
     </div>
     <div class="small-9 columns ">
-       <a href="/adminservice" class="success button left">Post</a>
+          <button class="success button left">Post</button>
       </div>
       </div>
-
 
     </div>
   </form>

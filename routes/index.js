@@ -11,6 +11,9 @@ const productsRoutes = require('./products');
 const stylesRoutes   = require('./styles');
 const userRoutes     = require('./user');
 const sessionRoutes  = require('./session');
+const adminnewsRoutes     = require('./adminnews');
+const adminservicesRoutes = require('./adminservices');
+const adminproductsRoutes = require('./adminproducts');
 const appointmentRoutes     = require('./appointment');
 
 const multer		 = require('multer');
@@ -20,6 +23,10 @@ const productupload  = multer({dest:'uploads/'});
 const styleupload    = multer({dest:'uploads/'});
 const newsupload     = multer({dest:'uploads/'});
 const salonupload    = multer({dest:'uploads/'});
+const adminnewsupload     = multer({dest:'uploads/'});
+const adminserviceupload  = multer({dest:'uploads/'});
+const adminproductupload  = multer({dest:'uploads/'});
+
 const fs             = require('fs');
 
 router.get('/',        homeRoutes.index);
@@ -42,14 +49,40 @@ router.get('/logout',          sessionRoutes.delete);
 Admin Routes
 */
 router.get('/adminindex',        adminRoutes.index);
-router.get('/adminservice',      adminRoutes.service);
+router.get('/addsalon',       adminRoutes.addsalon);
+router.post('/uploadadminsalon',       salonupload.single('image'), adminRoutes.postsalon);
+router.get('/editadminsalon/:id',      adminRoutes.editsalon);
+router.post('/updateadminsalon:id',    adminRoutes.updatesalon);
+router.get('/salondelete/:id',         adminRoutes.deletesalon);
+/*router.get('/adminservice',      adminRoutes.service);
 router.get('/adservice',         adminRoutes.adservice);
 router.get('/adminproduct',      adminRoutes.product);
 router.get('/adproduct',         adminRoutes.adproduct);
 router.get('/adminsalon',        adminRoutes.salon);
 router.get('/adsalon',           adminRoutes.adsalon);
 router.get('/adminnews',         adminRoutes.news);
-router.get('/adnews',            adminRoutes.adnews);
+router.get('/adnews',            adminRoutes.adnews);*/
+
+router.post('/uploadadminservice',       adminserviceupload.single('image'), adminservicesRoutes.postservice);             
+router.get('/adminservice',              adminservicesRoutes.services);
+router.get('/addadminservice',           adminservicesRoutes.addservice);
+router.get('/editadminservice/:id',      adminservicesRoutes.editservice);
+router.post('/updateadminservice:id',    adminservicesRoutes.updateservice);
+router.get('/adminservicedelete/:id',    adminservicesRoutes.deleteservice);
+
+router.get('/adminproduct',              adminproductsRoutes.product);
+router.post('/uploadadminproduct',       adminproductupload.single('image'), adminproductsRoutes.postproduct);
+router.get('/newadminproduct',           adminproductsRoutes.newproduct);
+router.get('/editadminproduct/:id',      adminproductsRoutes.editproduct);
+router.post('/updateadminproduct:id',    adminproductsRoutes.updateproduct);
+router.get('/adminproductdelete/:id',    adminproductsRoutes.deleteproduct);
+
+router.get('/adminnews',              adminnewsRoutes.news);
+router.post('/uploadadminnews',       adminnewsupload.single('image'), adminnewsRoutes.postnews);
+router.get('/newadminnews',           adminnewsRoutes.newnews);
+router.get('/editadminnews/:id',      adminnewsRoutes.editnews);
+router.post('/updateadminnews:id',    adminnewsRoutes.updatenews);
+router.get('/adminnewsdelete/:id',    adminnewsRoutes.deletenews);
 
 
 /*

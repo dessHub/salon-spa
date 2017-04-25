@@ -15,6 +15,9 @@ const SalonSchema = new Schema({
     hours:{
     	type:String
     },
+    contacts:{
+        type:String
+    },
     img: { 
     	type : String
     }

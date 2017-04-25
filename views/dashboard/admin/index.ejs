@@ -1,40 +1,44 @@
 <% layout('dashboard/admin') %>
 <div class ="container">
 <div class="large-8 columns">
-<h class ="align-center">New Salons</h>
+<h class ="align-center">Services</h>
 <div class="row collapse" id="appointment">
+<a class="small button success left " href="/addsalon">Add Salon</a>
 <table>
   <thead>
     <tr>
+      <th>#</th>
       <th>Salon Name</th>
-      <th>Salon Location</th>
-      <th>Phone Number</th>
-      <th>Email</th>
-      <th>Working Hours</th>
+      <th>Location</th>
+      <th>Hours</th>
       <th>Description</th>
-      <th>Subscription</th>
-      <th>Action</th>
+      <th>Posts</th>
+      <th>Contacts</th>
+      <th>Options</th>
     </tr>
   </thead>
   <tbody>
+  <% salon.forEach(function(salon, index){ %>
     <tr>
-      <td>SalonIris</td>
-      <td>Mombasa</td>
-      <td>0700000000</td>
-      <td>iris@gmail.com</td>
-      <td>8:00AM-5:00PM</td>
-      <td>All round Beauty Salon</td>
-      <td>$20/Month</td>
-      <td>
-            <select name="category">
-              <option value="">Action</option>
-              <option value="action1">Accept</option>
-              <option value="action2">Reject</option>
-            </select>
+    <th scope="row"><%= index + 1 %></th>
+      <td><%= salon.name  %></td>
+      <td><%= salon.location  %></td>
+      <td><%= salon.hours  %></td>
+      <td><%= salon.description %></td>
+      <td>10</td>
+      <td><%= salon.contacts %></td>
+      <td>          
+      <ul class="options">
+       <li><a href="/editadminsalon/<%= salon._id %>" title="Edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Update</a></li>
+       <li><a href="/salondelete/<%= salon._id %>" title="Delete"><i class="fa fa-trash" aria-hidden="true"></i>delete</a></li>
+      </ul>
       </td>
     </tr>
+       <%});%>
   </tbody>
 </table>
+
+
 </div>
 </div>
 </div>

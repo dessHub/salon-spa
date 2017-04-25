@@ -33,7 +33,7 @@ module.exports = {
 
        /** The original name of the uploaded file
            stored in the variable "originalname". **/
-       const target_path = 'uploads/styles' + req.file.originalname;
+       const target_path = 'uploads/news' + req.file.originalname;
        /** A better way to copy the uploaded file. **/
        const src = fs.createReadStream(tmp_path);
        const dest = fs.createWriteStream(target_path);
