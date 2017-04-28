@@ -1,20 +1,22 @@
 
 <section id="login">
+ <form action="/login" method="post">
   <div id="modal2" class="modal modal-fixed-footer">
     <div class="modal-content">
       <h3s>Log in</h3s><br>
         <div class="row">
           <div class="input-field col s12">
-            <input value="" id="pno" type="text" class="validate"><label for="pno">Phone Number</label>
+            <input value="" id="email" type="text" name="email"><label for="email">Email</label>
           </div>
           <div class="input-field col s12">
-            <input value="" id="code" type="password" class="validate"><label for="code">Password</label>
+            <input value="" id="password" type="password" name="password" class="validate"><label for="password">Password</label>
           </div>
-            <a href="/profile#!" class="modal-action modal-close waves-effect waves-red btn-flat ">Log in</a>  Not signed up  <a href="#modal1">Signup</a>
+            <button class="modal-action modal-close waves-effect waves-red btn-flat ">Log in</button>  Not signed up  <a href="#modal1">Signup</a>
           </div>
      </div>
     </div>
   <div class="modal-footer">
 </div>
 </div>
+</form>
 </section>

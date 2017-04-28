@@ -52,12 +52,12 @@ module.exports    = {
         if(foundUser){
           req.flash('message', 'Username already exists ');
           console.log(req.flash('message'));
-          res.redirect('/register');
+          return res.redirect('/register');
         } else {
           console.log('You have no register errors');
           User.createUser(user,(err, user)=>{
             if (err) throw err;
-
+               //res.redirect('/find');
             req.login(user,(err)=>{
               if (!err){
                 console.log(user);

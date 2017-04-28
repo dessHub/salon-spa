@@ -10,8 +10,10 @@ const fs = require('fs');
 const multer = require('multer');
 const morgan       = require('morgan');
 const session = require('express-session');
+const MongoStore       =  require('connect-mongo')(session);
 const expressValidator = require('express-validator');
 const passport = require('passport');
+
 
 //mongoose.Promise = global.Promise;
 const db      ='mongodb://localhost:27017/salonhunt';
@@ -33,14 +35,15 @@ app.use('/postservice', express.static('uploads'));
 
 
 app.use(morgan('dev'));
-app.use(session({ secret: 'ilovescotchscotchyscotchscotch' }));
 app.use(session({
-  resave    : true,
-  saveUninitialized:true,
-  secret: 'ilovescotchscotchyscotchscotch',
-  //store   : new mongostore({ url :db.getDB(env), autoReconnect:true}),
-  cookie : { maxAge: 180*60*1000}
-}));
+    secret: 'anything',
+    resave: true,
+    saveUninitialized: true,
+    store: new MongoStore({
+        url: db,
+        touchAfter: 24 * 3600
+    })
+  }));
 
 
 //Create EJS Engine view
@@ -54,7 +57,7 @@ app.use(passport.session());
 
 app.use(flash());
 
-app.use(function(req,res,next){
+app.use((req,res,next)=>{
   res.locals.user   = req.user;
   res.locals.message = req.flash();
   res.locals.session = req.session;

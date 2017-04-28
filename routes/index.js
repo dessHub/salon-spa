@@ -1,4 +1,3 @@
-
 const express        = require('express');
 const router         = express.Router();
 const homeRoutes     = require('./home');
@@ -40,7 +39,7 @@ router.post('/signup',            userRoutes.create);
 /*
  * @session routes 
 */
-router.get('/login',           sessionRoutes.new);
+router.get('#modal2',           sessionRoutes.new);
 router.post('/login',          sessionRoutes.create);
 router.get('/logout',          sessionRoutes.delete);
 

@@ -55,7 +55,7 @@
     </div>
   </div>
   <div class="parallax">
-    <img class="responsive-img"src="images/girl3.jpg" width="100%">
+    <img class="responsive-img"src="images/girl2.jpg" width="100%">
   </div>
 </div>
 
@@ -86,7 +86,8 @@
             <span><a class ="featured" href="#">Products</a></span>
             <span><a class ="featured" href="#">Patners</a></span>
             </p>-->
-
+<% if(adminservice){ %>
+ <% adminservice.forEach(function(adminservice, index){ %>
 <div class="col s12 m6 l4 responsive">
 
    <div id="small_posts_body" class="row small_posts_list">
@@ -96,12 +97,12 @@
                 <a href="/single"><span class="card-title">SalonIris</span></a>
           </div>
             <div class="card-content">
-             <h>Buy yourself today.Available in all our branches</h>
+             <h><%= adminservice.description  %></h>
             </div>
           <div id="small_post_image" class="col s12">
               <div class="card card-height">
                  <div class="card-image2">
-                  <img class="responsive-img" src="images/dread2.jpg">
+                  <img class="thumbnail" src="/<%= adminservice.img %>">
                  </div>
                    </div>
             </div>
@@ -111,125 +112,9 @@
 
 </div>
 
-<div class="col s12 m6 l4">
+   <% }); %>
+<% } %>
 
-   <div id="small_posts_body" class="row small_posts_list">
-        <div class="col s12">
-          <div class="chip">
-             <img src="images/girl4.jpg" alt="Contact Person">
-                <a href="/profile"><span class="card-title">BeautyClick</span></a>
-          </div>
-            <div class="card-content">
-             <h>Buy yourself today.Available in all our branches</h>
-            </div>
-          <div id="small_post_image" class="col s12">
-              <div class="card card-height">
-                 <div class="card-image2">
-                  <img class="responsive-img" src="images/girl4.jpg">
-                 </div>
-                   </div>
-            </div>
-
-         </div>
-       </div>
-
-</div>
-
-<div class="col s12 m6 l4">
-
-   <div id="small_posts_body" class="row small_posts_list">
-        <div class="col s12">
-          <div class="chip">
-             <img src="images/girl4.jpg" alt="Contact Person">
-                <a href="/profile"><span class="card-title">BeautyClick</span></a>
-          </div>
-            <div class="card-content">
-             <h>Buy yourself today.Available in all our branches</h>
-            </div>
-          <div id="small_post_image" class="col s12">
-              <div class="card card-height">
-                 <div class="card-image2">
-                  <img class="responsive-img" src="images/girl2.jpg">
-                 </div>
-                   </div>
-            </div>
-
-         </div>
-       </div>
-
-</div>
-
-<div class="col s12 m6 l4">
-
-   <div id="small_posts_body" class="row small_posts_list">
-        <div class="col s12">
-          <div class="chip">
-             <img src="images/girl4.jpg" alt="Contact Person">
-                <a href="/profile"><span class="card-title">BeautyClick</span></a>
-          </div>
-            <div class="card-content">
-             <h>Buy yourself today.Available in all our branches</h>
-            </div>
-          <div id="small_post_image" class="col s12">
-              <div class="card card-height">
-                 <div class="card-image2">
-                  <img class="responsive-img" src="images/girl4.jpg">
-                 </div>
-                   </div>
-            </div>
-
-         </div>
-       </div>
-
-</div>
-
-<div class="col s12 m6 l4">
-
-   <div id="small_posts_body" class="row small_posts_list">
-        <div class="col s12">
-          <div class="chip">
-             <img src="images/girl4.jpg" alt="Contact Person">
-                <a href="/profile"><span class="card-title">BeautyClick</span></a>
-          </div>
-            <div class="card-content">
-             <h>Buy yourself today.Available in all our branches</h>
-            </div>
-          <div id="small_post_image" class="col s12">
-              <div class="card card-height">
-                 <div class="card-image2">
-                  <img class="responsive-img" src="images/dread7.jpg">
-                 </div>
-                   </div>
-            </div>
-
-         </div>
-       </div>
-
-</div>
-
-<div class="col s12 m6 l4 responsive">
-
-   <div id="small_posts_body" class="row small_posts_list">
-        <div class="col s12">
-          <div class="chip">
-             <img src="images/girl3.jpg" alt="Contact Person">
-                  <a href="/profile"><span class="card-title"> Saloniris</span></a>
-          </div>
-            <div class="card-content">
-             <h>Buy yourself today.Available in all our branches</h>
-            </div>
-          <div id="small_post_image" class="col s12">
-              <div class="card card-height">
-                 <div class="card-image2">
-                  <img class="responsive-img" src="images/girl3.jpg">
-                 </div>
-                   </div>
-            </div>
-
-         </div>
-       </div>
-
-</div>
 </div>
 </div>
   </div>

@@ -1,14 +1,14 @@
-var passport         = require('passport');
-var LocalStrategy    = require('passport-local').Strategy;
-var User             = require('../models/user');
+const passport         = require('passport');
+const LocalStrategy    = require('passport-local').Strategy;
+const User             = require('../models/user');
 
-module.exports       = function(passport) {
-  passport.serializeUser(function(user, done) {
+module.exports       = (passport) =>{
+  passport.serializeUser((user, done)=> {
     done(null, user.id);
   });
 
-  passport.deserializeUser(function(id, done){
-    User.findById(id, function(err, user){
+  passport.deserializeUser((id, done)=>{
+    User.findById(id, (err, user)=>{
       if(err) done(err);
       done(null, user);
     });
@@ -19,16 +19,16 @@ module.exports       = function(passport) {
     passwordField: 'password',
     passReqToCallback: true
   }, 
-  function(req, email, password, done){
+  (req, email, password, done)=>{
     console.log(email);
-    User.getUserByUsername({ "username": email }, function(err, user){
+    User.getUserByUsername({ "username": email }, (err, user)=>{
       if (err) return done(err);
 
       if (!user) {
           console.log("can't find user with email ", email); 
           return done(null, false, req.flash('message', ' No user has been found'));
       }
-      User.comparePassword(password, user.password, function(err, isMatch){
+      User.comparePassword(password, user.password, (err, isMatch)=>{
         if(err) throw(err);
 
         if (isMatch) {

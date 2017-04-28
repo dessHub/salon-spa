@@ -1,22 +1,22 @@
-var passport   =  require('passport');
+const passport   =  require('../config/passport');
 
 module.exports =  {
-  new : function(req, res){
-    res.render('pages/login', {
+  new : (req, res)=>{
+    res.render('templates/loginform', {
         message: req.flash('loginMessage'),
         title: "Login Page",
         errors: ""
     });
   },
 
-  create : function(req, res, next){
-    passport.authenticate('login', function(err, user){
+  create : (req, res, next)=>{
+    passport.authenticate('login', (err, user)=>{
       if (err) return next(err);
       if (!user) {
         console.log('user not found');
         return res.redirect('/login');
       }
-      req.login(user, function(err){
+      req.login(user, (err)=>{
         if (err) return next(err);
         /* 
          either redirect the user back to the resource he/she was trying to access
@@ -32,7 +32,7 @@ module.exports =  {
     })(req, res, next);
   },
 
-  delete : function(req, res){
+  delete : (req, res)=>{
     req.logout();
     res.redirect('/');
     /* 
