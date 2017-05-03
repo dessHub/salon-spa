@@ -1,5 +1,6 @@
 const User          = require('../models/user');
 const Role          = require('../models/role');
+const passport      = require('passport');
 
 module.exports    = {
   new : (req, res)=>{
@@ -17,14 +18,14 @@ module.exports    = {
    Role.findOne({ name:'customer'}, (err, role)=>{
      if(err) return(err);
 
-      req.checkBody('fname','First name is required').notEmpty();
+      /*req.checkBody('fname','First name is required').notEmpty();
       req.checkBody('lname','Last name is required').notEmpty();
       req.checkBody('email','Email is required').notEmpty();
       req.checkBody('phone','Phone Number is required').notEmpty();
       req.checkBody('password','Password is required').notEmpty();
       req.checkBody('password2','Please you need to confirm your password').notEmpty();
       req.checkBody('password2', 'The passwords do not match').equals(req.body.password);
-      req.checkBody('email','Email is invalid').isEmail();
+      req.checkBody('email','Email is invalid').isEmail();*/
 
       const errors = req.validationErrors();
       if(errors){
@@ -44,7 +45,7 @@ module.exports    = {
       user.password = req.body.password;
       //user.role     = role._id;
 
-      User.getUserByUsername({username: req.body.username},(err, foundUser, done)=>{
+      User.findOne({username: req.body.username},(err, foundUser, done)=>{
         const message = 'That Username is already taken';
         const errors  = '';
         if(err) throw err;

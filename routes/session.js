@@ -1,4 +1,5 @@
-const passport   =  require('../config/passport');
+//const passport   =  require('../config/passport');
+const passport   =  require('passport');
 
 module.exports =  {
   new : (req, res)=>{
@@ -14,7 +15,7 @@ module.exports =  {
       if (err) return next(err);
       if (!user) {
         console.log('user not found');
-        return res.redirect('/login');
+        return res.redirect('/register#modal1');
       }
       req.login(user, (err)=>{
         if (err) return next(err);
@@ -26,7 +27,7 @@ module.exports =  {
          */
          req.flash('success', "Successfully logged in");
          console.log(req.user);
-         res.redirect(req.session.returnTo || '/');
+         res.redirect(req.session.returnTo || '/find');
          delete req.session.returnTo;
       });
     })(req, res, next);

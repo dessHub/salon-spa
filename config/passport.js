@@ -20,8 +20,7 @@ module.exports       = (passport) =>{
     passReqToCallback: true
   }, 
   (req, email, password, done)=>{
-    console.log(email);
-    User.getUserByUsername({ "username": email }, (err, user)=>{
+    User.findOne({ "email": email }, (err, user)=>{
       if (err) return done(err);
 
       if (!user) {

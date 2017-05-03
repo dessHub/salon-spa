@@ -27,6 +27,7 @@ const adminserviceupload  = multer({dest:'uploads/'});
 const adminproductupload  = multer({dest:'uploads/'});
 
 const fs             = require('fs');
+const passport       = require('passport');
 
 router.get('/',        homeRoutes.index);
 
