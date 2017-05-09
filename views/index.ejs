@@ -17,15 +17,31 @@
       <ul class="right hide-on-med-and-down">
         <li><a href="#section11">Featured</a></li>
         <li><a href="#section">Contact Us</a></li>
+       <!--show login and sign up lin user is not logged in -->
+       <% if(!user) {%> 
         <li><a href="#modal2">Login</a></li>
         <li><a href="/register">Signup</a></li>
+       <%}%>
+       <!--show logout and display namcurrent user is logged in -->
+       <% if(user) {%> 
+       <li><a href="/admin">Welcome <%= user.username %></a></li> 
+       <li><a href="/logout">Logout</a></li> 
+       <%}%>
       </ul>
 
       <ul id="nav-mobile" class="side-nav">
         <li><a href="#section11">Featured</a></li>
         <li><a href="#section">Contact Us</a></li>
+       <!--show login and sign up lin user is not logged in -->
+       <% if(!user) {%> 
         <li><a href="#modal2">Login</a></li>
         <li><a href="/register">Signup</a></li>
+       <%}%>
+       <!--show logout and display namcurrent user is logged in -->
+       <% if(user) {%> 
+       <li><a href="/admin">Welcome <%= user.username %></a></li> 
+       <li><a href="/logout">Logout</a></li> 
+       <%}%>
       </ul>
       <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
   </nav>
