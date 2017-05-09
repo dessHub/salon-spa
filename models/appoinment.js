@@ -1,5 +1,6 @@
 const mongoose  =require('mongoose');
 const Schema    =mongoose.Schema;
+const User     = require('../models/user');
 
 const AppointmentSchema = new Schema({
     email: {
@@ -21,6 +22,7 @@ const AppointmentSchema = new Schema({
     time:{
       type:String
     },
+    user: [{type:Schema.Types.ObjectId, ref:User}]
   });
 
 AppointmentSchema.methods.getAppointmentByEmail = (email, callback)=>{

@@ -1,5 +1,6 @@
 const mongoose  =require('mongoose');
 const Schema    =mongoose.Schema;
+const User     = require('../models/user');
 
 const SalonSchema = new Schema({
     name: {
@@ -20,7 +21,8 @@ const SalonSchema = new Schema({
     },
     img: { 
     	type : String
-    }
+    },
+    user: [{type:Schema.Types.ObjectId, ref:User}]
   });
 
 SalonSchema.methods.getSalonByName = (name, callback)=>{

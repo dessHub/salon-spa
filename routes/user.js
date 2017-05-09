@@ -62,7 +62,7 @@ module.exports    = {
             req.login(user,(err)=>{
               if (!err){
                 console.log(user);
-                res.redirect('/');
+                res.redirect('/salonindex');
               } else{
                 console.log("There was an error i", err);
               }

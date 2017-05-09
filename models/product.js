@@ -1,5 +1,6 @@
 const mongoose  =require('mongoose');
 const Schema    =mongoose.Schema;
+const User     = require('../models/user');
 
 const ProductSchema = new Schema({
     title: {
@@ -11,7 +12,8 @@ const ProductSchema = new Schema({
     },
     img: { 
     	type : String
-    }
+    },
+    user: [{type:Schema.Types.ObjectId, ref:User}]
   });
 
 ProductSchema.methods.getProductByTitle = (title, callback)=>{

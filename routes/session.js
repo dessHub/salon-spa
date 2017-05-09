@@ -27,7 +27,7 @@ module.exports =  {
          */
          req.flash('success', "Successfully logged in");
          console.log(req.user);
-         res.redirect(req.session.returnTo || '/find');
+         res.redirect(req.session.returnTo || '/salonindex');
          delete req.session.returnTo;
       });
     })(req, res, next);
