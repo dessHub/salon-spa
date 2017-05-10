@@ -34,8 +34,7 @@ module.exports    = {
         });
       }
 
-      const role = "normal";
-
+      
       const user      = new User();
       user.fname    = req.body.fname;
       user.lname    = req.body.lname;
@@ -43,7 +42,7 @@ module.exports    = {
       user.phone    = req.body.phone;
       user.username = req.body.username;
       user.password = req.body.password;
-      user.role     = role;
+      user.role     = req.body.role;
 
       User.findOne({username: req.body.username},(err, foundUser, done)=>{
         const message = 'That Username is already taken';
@@ -62,8 +61,16 @@ module.exports    = {
             req.login(user,(err)=>{
               if (!err){
                 console.log(user);
+
+                if(req.user.role == 'customer' ){
+                  res.redirect('/find');
+
+                }else if(req.user.role == 'salonuser'){
+                  res.redirect('/salonindex');
+
+                }
+
                 
-                res.redirect('/salonindex');
               } else{
                 console.log("There was an error i", err);
               }

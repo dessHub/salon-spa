@@ -27,11 +27,15 @@ module.exports =  {
          */
          req.flash('success', "Successfully logged in");
          console.log(req.user);
-         if(req.user.role == 'normal'){
+         if(req.user.role == 'customer'){
           console.log("login as normal user")
-          res.redirect(req.session.returnTo || '/salonindex');
+          res.redirect(req.session.returnTo || '/find');
           delete req.session.returnTo;
-         }else if(req.user.role == 'admin'){
+         }else if(req.user.role == 'salonuser'){
+          console.log("login as admin user")
+         res.redirect(req.session.returnTo || '/salonindex');
+         delete req.session.returnTo;
+       }else if(req.user.role == 'admin'){
           console.log("login as admin user")
          res.redirect(req.session.returnTo || '/adminindex');
          delete req.session.returnTo;
