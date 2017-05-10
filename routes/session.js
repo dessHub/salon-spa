@@ -27,8 +27,15 @@ module.exports =  {
          */
          req.flash('success', "Successfully logged in");
          console.log(req.user);
-         res.redirect(req.session.returnTo || '/salonindex');
+         if(req.user.role == 'normal'){
+          console.log("login as normal user")
+          res.redirect(req.session.returnTo || '/salonindex');
+          delete req.session.returnTo;
+         }else if(req.user.role == 'admin'){
+          console.log("login as admin user")
+         res.redirect(req.session.returnTo || '/adminindex');
          delete req.session.returnTo;
+       }
       });
     })(req, res, next);
   },

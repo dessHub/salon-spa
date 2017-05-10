@@ -15,8 +15,6 @@ module.exports    = {
   },
 
   create : (req, res)=>{
-   Role.findOne({ name:'customer'}, (err, role)=>{
-     if(err) return(err);
 
       /*req.checkBody('fname','First name is required').notEmpty();
       req.checkBody('lname','Last name is required').notEmpty();
@@ -36,6 +34,8 @@ module.exports    = {
         });
       }
 
+      const role = "normal";
+
       const user      = new User();
       user.fname    = req.body.fname;
       user.lname    = req.body.lname;
@@ -43,7 +43,7 @@ module.exports    = {
       user.phone    = req.body.phone;
       user.username = req.body.username;
       user.password = req.body.password;
-      //user.role     = role._id;
+      user.role     = role;
 
       User.findOne({username: req.body.username},(err, foundUser, done)=>{
         const message = 'That Username is already taken';
@@ -62,6 +62,7 @@ module.exports    = {
             req.login(user,(err)=>{
               if (!err){
                 console.log(user);
+                
                 res.redirect('/salonindex');
               } else{
                 console.log("There was an error i", err);
@@ -70,6 +71,5 @@ module.exports    = {
           });
         }
       });
-    });
   }
  }
