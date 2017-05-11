@@ -11,7 +11,7 @@ const UserSchema = Schema({
     lname: { type: String },
     phone:{ type: Number},
     email:    { type: String },
-    role:     [{type: Schema.Types.ObjectId, ref:Role }]
+    role:   { type: String }  
 });
 
 const User = module.exports = mongoose.model('User', UserSchema);
