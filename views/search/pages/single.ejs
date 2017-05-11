@@ -31,16 +31,16 @@
 
   <div class="collection">
   <div class="collection-item1">
-    <h><b>SalonIris</b><h>
+    <h><b><%= salon.name %></b><h>
     <h><a href ="#map"><i class="fa fa-map-marker"></i></a></h>
     <a href="#modal1" class="right btn-flat">Schedule Appointment</a>
   </div>
   <a href="#!" class="collection-item1">
-    <h1>Location:Eldama Ravine Road, Westlands, Nairobi</h1>
+    <h1>Location:<%= salon.location %></h1>
     <h1>Building: Continental</h1>
         <div class="card card-height1">
             <div class="card-image4">
-             <img class="responsive-img" src="images/girl4.jpg">
+             <img class="responsive-img" src="/<%= salon.img %>">
             </div>
         </div>
   </a>
@@ -49,7 +49,7 @@
   <div class="collection">
     <a href="#!" class="collection-item1">Salon Infomation</a>
     <a href="#!" class="collection-item1">
-    <h1>About Thyme offers an eclectic menu with imaginative, well-prepared and beautifully presented dishes from around the world. Intimate dining in a leafy, secluded area of Westlands where good food and drinks can be enjoyed in a tranquil setting. There is something to cater for all tastes with a wide range of vegetarian dishes & desserts. Here are special treats that have become famous over the years.</p>
+    <h1><%= salon.description %></p>
     </h1></a>
   </div>
 
@@ -68,14 +68,9 @@
       <div class="col l3 hide-on-med-and-down">
               <div class="card card-height">
                  <div class="card-image2">
-                  <img class="responsive-img" src="images/new.png">
+                   <img class="responsive-img" src="/<%= adminnews.img %>">
                  </div>
-              </div>
-              <div class="card card-height">
-                 <div class="card-image2">
-                  <img class="responsive-img" src="images/new2.png">
-                 </div>
-              </div>
+              </div>  
       </div>
    
 </div>

@@ -140,7 +140,7 @@ router.get('/newsdelete/:id',  isLoggedIn,  newsRoutes.deletenews);
 Search Routes
 */
 router.get('/find',           isLoggedIn,  searchRoutes.index);
-router.get('/single', 			isLoggedIn, searchRoutes.single);
+router.get('/salon/item/:id',            searchRoutes.item);
 router.get('/findservice', 		isLoggedIn, searchRoutes.service);
 router.get('/hair', 			isLoggedIn, searchRoutes.hair);
 router.get('/offer',		   isLoggedIn, searchRoutes.offer);

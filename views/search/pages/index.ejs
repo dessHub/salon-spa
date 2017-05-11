@@ -38,46 +38,23 @@
     <h><a href ="#modal3"><i class="fa fa-map-marker"></i></a></h>
     <a href="#modal1" class="right btn-flat">Schedule Appointment</a>
   </div>
-    <a href="/single" class="collection-item col s12 m12 l12">
+   <% salon.forEach(function(salon, index){ %>
+
+    <a href="/salon/item/<%= salon._id %>" class="collection-item col s12 m12 l12">
           <div id="small_post_image" class="col s6 m6 l6">
               <div class="card card-height">
                  <div class="card-image3">
-                  <img class="responsive-img" src="images/girl4.jpg">
+                  <img class="responsive-img" src="/<%= salon.img %>">
                  </div>
                    </div>
             </div> 
       <div class="col s6 m6 l6">
-        <p>SalonIris</p>
-        <p>Location :Mombasa Old Town </p>
+        <p><%= salon.name %></p>
+        <p>Location : <%= salon.location %> </p>
       </div>
     </a>
 
-    <a href="#!" class="collection-item col s12 m12 l12">
-          <div id="small_post_image" class="col s6 m6 l6">
-              <div class="card card-height">
-                 <div class="card-image3">
-                  <img class="responsive-img" src="images/girl3.jpg">
-                 </div>
-                   </div>
-            </div> 
-      <div class="col s6 m6 l6">
-        <p>SalonIris</p>
-        <p>Location :Mombasa Old Town </p>
-      </div>
-    </a>
-    <a href="#!" class="collection-item col s12 m12 l12">
-          <div id="small_post_image" class="col s6 m6 l6">
-              <div class="card card-height">
-                 <div class="card-image3">
-                  <img class="responsive-img" src="images/girl2.jpg">
-                 </div>
-                   </div>
-            </div> 
-      <div class="col s6 m6 l6">
-        <p>SalonIris</p>
-        <p>Location :Mombasa Old Town </p>
-      </div>
-    </a>
+    <%});%>
   </div>
 </div>
       <div class="col l3 hide-on-med-and-down">

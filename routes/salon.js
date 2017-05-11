@@ -7,15 +7,21 @@ const upload = multer({ dest: 'uploads/' });
 
 module.exports = {
 index : (req, res)=> {
+  Salon.findOne({},(err,salon)=>{
+   if(err) res.send(err);
+   if (salon){
   Appointment.find({},(err,appointment)=>{
    if(err) res.send(err);
    res.render('dashboard/salons/index', {
+    salon : salon,
     appointment : appointment
    });
   });
+}
+});
   },
 
- //salon routes 
+ //salon routes
 
 profile: (req, res)=> {
     Salon.find({},(err,salon)=>{
