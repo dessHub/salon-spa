@@ -16,14 +16,14 @@ module.exports    = {
 
   create : (req, res)=>{
 
-      /*req.checkBody('fname','First name is required').notEmpty();
+      req.checkBody('fname','First name is required').notEmpty();
       req.checkBody('lname','Last name is required').notEmpty();
       req.checkBody('email','Email is required').notEmpty();
       req.checkBody('phone','Phone Number is required').notEmpty();
       req.checkBody('password','Password is required').notEmpty();
       req.checkBody('password2','Please you need to confirm your password').notEmpty();
       req.checkBody('password2', 'The passwords do not match').equals(req.body.password);
-      req.checkBody('email','Email is invalid').isEmail();*/
+      req.checkBody('email','Email is invalid').isEmail();
 
       const errors = req.validationErrors();
       if(errors){
