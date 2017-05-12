@@ -66,11 +66,15 @@
 
 </div>
       <div class="col l3 hide-on-med-and-down">
+      <% if(adminnews){ %>
+ <% adminnews.forEach(function(adminnews, index){ %>
               <div class="card card-height">
                  <div class="card-image2">
                    <img class="responsive-img" src="/<%= adminnews.img %>">
                  </div>
-              </div>  
+              </div> 
+ <% }); %>
+<% } %> 
       </div>
    
 </div>

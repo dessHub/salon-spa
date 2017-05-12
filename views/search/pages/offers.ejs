@@ -21,17 +21,18 @@
  <div class="col s8 m8 l7">
 
 <div class="collection col s12 m12 l12">
+<% product.forEach(function(product, index){ %>
 <div class="col s12 m12 l6">
 
    <div id="small_posts_body" class="row small_posts_list">
         <div class="col s12">
         <div class="card-content">
-         <h>Buy yourself today.Available in all our branches</h>
+         <h><b><%= product.title %>:</b><%= product.description %></h>
          </div>
           <div id="small_post_image" class="col s12">
               <div class="card card-height">
                  <div class="card-image2">
-                  <img class="responsive-img" src="images/offer3.png">
+                  <img class="responsive-img" src="/<%= product.img %>">
                  </div>
                    </div>
             </div>
@@ -40,43 +41,21 @@
           </div>
          </div>
        </div>
-
 </div>
-<div class="col s12 m12 l6">
-
-   <div id="small_posts_body" class="row small_posts_list">
-        <div class="col s12">
-            <div class="card-content">
-             <h>Buy yourself today.Available in all our branches</h>
-            </div>
-          <div id="small_post_image" class="col s12">
-              <div class="card card-height">
-                 <div class="card-image2">
-                  <img class="responsive-img" src="images/offer1.png">
-                 </div>
-                   </div>
-            </div>
-          <div class="app">
-              <a href="#modal5" class="btn-flat">Make order</a>
-          </div>
-         </div>
-       </div>
-
-</div>
+<%});%>
   </div>
 
 </div>
       <div class="col l3 hide-on-med-and-down">
+      <% if(adminnews){ %>
+ <% adminnews.forEach(function(adminnews, index){ %>
               <div class="card card-height">
                  <div class="card-image2">
-                  <img class="responsive-img" src="images/new.png">
+                   <img class="responsive-img" src="/<%= adminnews.img %>">
                  </div>
-              </div>
-              <div class="card card-height">
-                 <div class="card-image2">
-                  <img class="responsive-img" src="images/new2.png">
-                 </div>
-              </div>
+              </div> 
+ <% }); %>
+<% } %>
       </div>
    
 </div>

@@ -21,40 +21,26 @@
  <div class="col s8 m8 l7">
 
   <div class="collection">
-    <a href="#!" class="collection-item1">For Women</a>
+    <a href="#!" class="collection-item1">Our Services</a>
     <a href="#!" class="collection-item1">
 <ol>
-<li><p>Retouch</p></li>
-<li><p>Dreadlocks</p></li>
-<li><p>Styling</p></li>
-<li><p>Skincare</p></li>
-<li><p>Pedicure</p></li>
-<li><p>Manicure</p></li>
-</ol>
-  </div>
-  <div class="collection">
-    <a href="#!" class="collection-item1">For Men</a>
-    <a href="#!" class="collection-item1">
-<ol>
-<li><p>Men's Cut</p></li>
-<li><p>Men's Shampoo & Hair Cut</p></li>
-<li><p>Hair Color</p></li>
-<li><p>Parameter Trim</p></li>
+  <% service.forEach(function(service, index){ %>
+  <li><p><%= service.title %></p></li>
+    <%});%>
 </ol>
   </div>
 
 </div>
       <div class="col l3 hide-on-med-and-down">
+      <% if(adminnews){ %>
+ <% adminnews.forEach(function(adminnews, index){ %>
               <div class="card card-height">
                  <div class="card-image2">
-                  <img class="responsive-img" src="images/new.png">
+                   <img class="responsive-img" src="/<%= adminnews.img %>">
                  </div>
-              </div>
-              <div class="card card-height">
-                 <div class="card-image2">
-                  <img class="responsive-img" src="images/new2.png">
-                 </div>
-              </div>
+              </div> 
+ <% }); %>
+<% } %>
       </div>
    
 </div>
