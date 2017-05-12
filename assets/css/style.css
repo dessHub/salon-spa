@@ -54,6 +54,15 @@ nav .brand-logo i, nav .brand-logo [class^="mdi-"], nav .brand-logo [class*="mdi
 
     padding-top: 15px;
 }
+nav .input-field label i {
+    color: #000;
+    transition: color .3s;
+}
+nav .input-field  {
+    font-size: 10px;
+    font-weight: lighter;
+}
+
 a{
   color: #800080;
 }
