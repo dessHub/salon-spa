@@ -1,6 +1,6 @@
 const mongoose  =require('mongoose');
 const Schema    =mongoose.Schema;
-const User     = require('../models/user');
+const Salon     = require('../models/salon');
 
 const ServiceSchema = new Schema({
     title: {
@@ -13,7 +13,7 @@ const ServiceSchema = new Schema({
     img: { 
     	type : String
     },
-    user: [{type:Schema.Types.ObjectId, ref:User}]
+    salon: [{type:Schema.Types.ObjectId, ref:Salon}]
   });
 
 ServiceSchema.methods.getServiceByTitle = (title, callback)=>{
