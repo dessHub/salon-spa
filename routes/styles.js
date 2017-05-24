@@ -11,7 +11,7 @@ module.exports = {
  //style routes 
 
   style: (req, res)=> {
-    Style.find({},(err,style)=>{
+    Style.find({user:req.user.id},(err,style)=>{
       if(err) res.send(err);
       res.render('dashboard/salons/salonstyles', {
          style:style
@@ -43,6 +43,7 @@ module.exports = {
        console.log(target_path);
        const style = new Style();
        style.title = req.body.title;
+       style.user = req.user.id;
        style.description = req.body.description;
        style.img = target_path;
        console.log(style.title);

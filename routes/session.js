@@ -3,7 +3,7 @@ const passport   =  require('passport');
 
 module.exports =  {
   new : (req, res)=>{
-    res.render('templates/loginform', {
+    res.render('login', {
         message: req.flash('loginMessage'),
         title: "Login Page",
         errors: ""
@@ -15,7 +15,7 @@ module.exports =  {
       if (err) return next(err);
       if (!user) {
         console.log('user not found');
-        return res.redirect('/register#modal1');
+        return res.redirect('/login');
       }
       req.login(user, (err)=>{
         if (err) return next(err);

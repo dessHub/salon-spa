@@ -314,6 +314,16 @@ font-size: 11px;
 .collection a.collection-item {
     color: #000;
   }
+#section3{
+  background-color: #F6CEF5;
+}
+.section h5{
+  text-decoration: underline;
+}
+ #section3 .row{
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+ }
 #section2 .row{
     margin-bottom: 80px;
 }

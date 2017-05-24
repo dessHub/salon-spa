@@ -9,7 +9,7 @@ module.exports = {
 
 //service routes
   services: (req,res)=> {
-    Service.find({},(err,service)=>{
+    Service.find({user:req.user.id},(err,service)=>{
       if(err) res.send(err);
       res.render('dashboard/salons/salonservices', {
          service:service
@@ -41,6 +41,7 @@ module.exports = {
        console.log(target_path);
        const service = new Service();
        service.title = req.body.title;
+       service.user = req.user.id;
        service.description = req.body.description;
        service.img = target_path;
        console.log(service.title);

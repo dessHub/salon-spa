@@ -14,11 +14,11 @@
     <nav class="black navbar">
       <a id="left" href="/" class="brand-logo"><b>Salonhunt<b></a>
       <ul class="right hide-on-med-and-down">
-        <li><a href="#modal2">Login</a></li>
+        <li><a href="/login">Login</a></li>
       </ul>
 
       <ul id="nav-mobile" class="side-nav">
-        <li><a href="#modal2">Login</a></li>
+        <li><a href="/login">Login</a></li>
       </ul>
       <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
   </nav>
@@ -38,7 +38,7 @@
                 <p><%= message[i] %></p>
               <% } %>
             <% } %>
-<div class="section" style="padding-top:60px;">
+<div class="section">
        <p class="center-align" style="font-size:35px; line-height:0.3em; ">Signup</p>
         <div class="row">
           <div class="input-field s6 m6 l6">
@@ -80,10 +80,6 @@
 </form>
 </div>
 </section>
-
-<% include /templates/loginform.ejs %>
-
-
 
   <!--  Scripts-->
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>

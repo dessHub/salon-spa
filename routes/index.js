@@ -39,7 +39,7 @@ function isLoggedIn(req, res, next) {
     return next();
   }
   req.session.returnTo = req.path;
-  res.redirect('/register#modal1');
+  res.redirect('/login');
 }
 
 
@@ -54,7 +54,7 @@ router.post('/signup',            userRoutes.create);
 /*
  * @session routes 
 */
-router.get('#modal2',           sessionRoutes.new);
+router.get('/login',           sessionRoutes.new);
 router.post('/login',          sessionRoutes.create);
 router.get('/logout',          sessionRoutes.delete);
 
@@ -139,11 +139,11 @@ router.get('/newsdelete/:id',  isLoggedIn,  newsRoutes.deletenews);
 /*
 Search Routes
 */
-router.get('/find',           isLoggedIn,  searchRoutes.index);
+router.get('/find',             searchRoutes.index);
 router.get('/salon/item/:id',            searchRoutes.item);
-router.get('/findservice', 		isLoggedIn, searchRoutes.service);
-router.get('/hair', 			isLoggedIn, searchRoutes.hair);
-router.get('/offer',		   isLoggedIn, searchRoutes.offer);
-router.post('/postappointment', isLoggedIn, appointmentRoutes.postappointment);
+router.get('/findservice:user', 		isLoggedIn, searchRoutes.service);
+router.get('/hair:user', 		  searchRoutes.hair);
+router.get('/offer:user',		    searchRoutes.offer);
+router.post('/postappointment',  appointmentRoutes.postappointment);
 
 module.exports=router;

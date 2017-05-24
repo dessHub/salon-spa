@@ -10,7 +10,7 @@ module.exports = {
 //product routes
 
   product: (req, res)=> {
-    Product.find({},(err,product)=>{
+    Product.find({user:req.user.id},(err,product)=>{
       if(err) res.send(err);
       res.render('dashboard/salons/salonproducts', {
          product:product
@@ -42,6 +42,7 @@ module.exports = {
        console.log(target_path);
        const product = new Product();
        product.title = req.body.title;
+       product.user = req.user.id;
        product.description = req.body.description;
        product.img = target_path;
        console.log(product.title);

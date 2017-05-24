@@ -11,7 +11,7 @@ module.exports = {
  //News routes 
 
   news: (req, res)=> {
-    News.find({},(err,news)=>{
+    News.find({user:req.user.id},(err,news)=>{
       if(err) res.send(err);
       res.render('dashboard/salons/salonnews', {
          news  :news
@@ -43,6 +43,7 @@ module.exports = {
        console.log(target_path);
        const news = new News();
        news.title = req.body.title;
+       news.user = req.user.id;
        news.description = req.body.description;
        news.img = target_path;
        console.log(news.title);

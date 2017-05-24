@@ -7,7 +7,7 @@ const upload = multer({ dest: 'uploads/' });
 
 module.exports = {
 index : (req, res)=> {
-  Salon.findOne({},(err,salon)=>{
+  Salon.find({},(err,salon)=>{
    if(err) res.send(err);
    if (salon){
   Appointment.find({},(err,appointment)=>{
@@ -49,6 +49,7 @@ postsalon: (req,res)=>{
        console.log(target_path);
        const salon = new Salon();
        salon.name = req.body.name;
+       salon.user = req.user.id;
        salon.location = req.body.location;
        salon.hours =req.body.hours;
        salon.description = req.body.description;

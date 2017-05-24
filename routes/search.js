@@ -43,14 +43,23 @@ module.exports = {
   service : (req, res)=> {
     Adminnews.find({},(err,adminnews)=>{
       if(err) res.send(err);
+      console.log(adminnews)
    if (adminnews){
-    Service.find({},(err,service)=>{
+    Salon.find({salon:req.params.salon}, function(err, salon){
       if(err) res.send(err);
+      console.log(salon)
+     if (salon){
+    Service.find({user:req.params.user},(err,service)=>{
+      if(err) res.send(err);
+      console.log(service)
       res.render('search/pages/services', {
          adminnews:adminnews,
+         salon:salon,
          service:service
       });
     });
+  }
+     });
       }
     });
   },
@@ -58,29 +67,48 @@ module.exports = {
   hair : (req, res)=> {
     Adminnews.find({},(err,adminnews)=>{
       if(err) res.send(err);
+      console.log(adminnews)
    if (adminnews){
-    Style.find({},(err,style)=>{
+    Salon.find({salon:req.params.salon}, function(err, salon){
       if(err) res.send(err);
+      console.log(salon)
+     if (salon){
+    Style.find({user:req.params.user},(err,style)=>{
+      if(err) res.send(err);
+      console.log(style)
       res.render('search/pages/trends', {
          adminnews:adminnews,
+         salon:salon,
          style:style
       });
     });
+  }
+     });
       }
     });
   },
 
+
   offer : (req, res)=> {
     Adminnews.find({},(err,adminnews)=>{
       if(err) res.send(err);
+      console.log(adminnews)
    if (adminnews){
-    Product.find({},(err,product)=>{
+    Salon.find({salon:req.params.salon}, function(err, salon){
       if(err) res.send(err);
+      console.log(salon)
+     if (salon){
+    Product.find({user:req.params.user},(err,product)=>{
+      if(err) res.send(err);
+      console.log(product)
       res.render('search/pages/offers', {
          adminnews:adminnews,
+         salon:salon,
          product:product
       });
     });
+  }
+     });
       }
     });
   },
