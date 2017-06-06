@@ -14,8 +14,6 @@
     <h><a href ="#modal3"><i class="fa fa-map-marker"></i></a></h>
     <a href="#modal1" class="right btn-flat">Schedule Appointment</a>
   </div>
-   <% salon.forEach(function(salon, index){ %>
-
     <a href="/salon/item/<%= salon._id %>" class="collection-item col s12 m12 l12">
           <div id="small_post_image" class="col s6 m6 l6">
               <div class="card card-height">
@@ -29,8 +27,6 @@
         <p>Location : <%= salon.location %> </p>
       </div>
     </a>
-
-    <%});%>
   </div>
 </div>
 <%= include ../partials/right %>

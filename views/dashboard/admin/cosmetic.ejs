@@ -3,7 +3,7 @@
 <div class="large-8 columns">
 <h class ="align-center">Services</h>
 <div class="row collapse" id="appointment">
-<a class="small button success left " href="/addsalon">Add Salon</a>
+<a class="small button success left " href="/addcosmetic">New</a>
 <table>
   <thead>
     <tr>
@@ -18,16 +18,17 @@
     </tr>
   </thead>
   <tbody>
-  <% salon.forEach(function(salon, index){ %>
+  <% cosmetic.forEach(function(cosmetic, index){ %>
     <tr>
     <th scope="row"><%= index + 1 %></th>
-      <td><%= salon.name  %></td>
-      <td><%= salon.location  %></td>
-      <td><%= salon.hours  %></td>
-      <td><%= salon.description %></td>
+      <td><%= cosmetic.name  %></td>
+      <td><%= cosmetic.location  %></td>
+      <td><%= cosmetic.hours  %></td>
+      <td><%= cosmetic.description %></td>
       <td>10</td>
-      <td><%= salon.contact %></td>
-      <td><a href="/salondelete/<%= salon._id %>" title="Delete"><i class="fa fa-trash" aria-hidden="true"></i>delete</a> </td>
+      <td><%= cosmetic.contact %></td>
+      <td><a href="/cosmeticdelete/<%= cosmetic._id %>" title="Delete"><i class="fa fa-trash" aria-hidden="true"></i>delete</a>
+      </td>
     </tr>
        <%});%>
   </tbody>

@@ -1,20 +1,20 @@
-const Salon     = require('../models/salon');
-const Appointment     = require('../models/appoinment');
+const Cosmetic     = require('../models/cosmetic');
+const Order     = require('../models/order');
 const multer = require('multer');
 const fs = require('fs');
 const path = require('path');
 const upload = multer({ dest: 'uploads/' });
 
 module.exports = {
-profile : (req, res)=> {
-  Salon.findOne({},(err,salon)=>{
+profile: (req, res)=> {
+  Cosmetic.find({user:req.params.user},(err,cosmetic)=>{
    if(err) res.send(err);
-   if (salon){
-  Appointment.find({},(err,appointment)=>{
+   if (cosmetic){
+  Order.find({},(err,order)=>{
    if(err) res.send(err);
-   res.render('dashboard/salons/index', {
-    salon : salon,
-    appointment : appointment
+   res.render('dashboard/cosmetics/index', {
+    cosmetic : cosmetic,
+    order : order
    });
   });
 }
@@ -24,22 +24,22 @@ profile : (req, res)=> {
  //salon routes
 
 index: (req, res)=> {
-    Salon.find({},(err,salon)=>{
+    Cosmetic.find({},(err,cosmetic)=>{
       if(err) res.send(err);
-      res.render('dashboard/salons/profile', {
-         salon:salon
+      res.render('dashboard/cosmetics/profile', {
+         cosmetic:cosmetic
       });
     });
   },
 
-postsalon: (req,res)=>{
+postcosmetic: (req,res)=>{
       const image = req.image;
       const tmp_path = req.file.path;
       console.log(req.file);
 
        /** The original name of the uploaded file
            stored in the variable "originalname". **/
-       const target_path = 'uploads/salon' + req.file.originalname;
+       const target_path = 'uploads/cosmetic' + req.file.originalname;
        /** A better way to copy the uploaded file. **/
        const src = fs.createReadStream(tmp_path);
        const dest = fs.createWriteStream(target_path);
@@ -47,38 +47,36 @@ postsalon: (req,res)=>{
        fs.unlink(tmp_path); //deleting the tmp_path
 
        console.log(target_path);
-       const salon = new Salon();
-       salon.name = req.body.name;
-       salon.user = req.user.id;
-       salon.location = req.body.location;
-       salon.contact = req.body.contact;
-       salon.hours =req.body.hours;
-       salon.user = req.user.id;
-       salon.description = req.body.description;
-       salon.img = target_path;
-       console.log(salon.title);
+       const cosmetic = new Cosmetic();
+       cosmetic.name = req.body.name;
+       cosmetic.user = req.user.id;
+       cosmetic.location = req.body.location;
+       cosmetic.contact =req.body.contact;
+       cosmetic.hours =req.body.hours;
+       cosmetic.description = req.body.description;
+       cosmetic.img = target_path;
         
-       salon.save((err,salon)=>{
+       cosmetic.save((err,cosmetic)=>{
         if(err) return (err);
           
           
-        console.log(salon)
-        res.redirect('/salonprofile');
+        console.log(cosmetic)
+        res.redirect('/cosmeticprofile');
       });
 
   },
 
-  editsalon: (req, res)=>{
-    Salon.findOne({ _id : req.params.id },(err, salon)=>{
+  editcosmetic: (req, res)=>{
+    Cosmetic.findOne({ _id : req.params.id },(err, cosmetic)=>{
       if(err) return err;
       res.render('dashboard/salons/editsalon', {
           title      : "update",
-          salon   : salon
+          cosmetic   : cosmetic
       });
     });  
   },
 
-  updatesalon: (req, res, next)=>{
+  updatecosmetic: (req, res, next)=>{
     console.log(req.params.id);
    // Service.findOne({ _id : req.body.serviceid},(err, service)=>{
        // if(err) return next(err);
@@ -88,11 +86,11 @@ postsalon: (req,res)=>{
        const contact = req.body.contact;
        const hours = req.body.hours;
        const salon = new Salon();
-        salon._id =  req.params.id;
-        salon.update({name:name,location:location,contact:contact,description:description,hours}, (err, salon)=>{
+        cosmetic._id =  req.params.id;
+        cosmetic.update({name:name,location:location,contact:contact,description:description,hours}, (err, cosmetic)=>{
           if(err) return next(err);
-          console.log(salon)
-          res.redirect('/salon');
+          console.log(cosmetic)
+          res.redirect('/cosmetic');
         });
       //});
      }

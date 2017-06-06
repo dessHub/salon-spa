@@ -11,16 +11,48 @@ module.exports = {
   services: (req,res)=> {
     Service.find({user:req.user.id},(err,service)=>{
       if(err) res.send(err);
-      res.render('dashboard/salons/salonservices', {
-         service:service
-      });
+                    if (!err){
+                console.log(service);
+
+                if(req.user.role == 'cosmeticuser' ){
+                 res.render('dashboard/cosmetics/cosmeticservices', {
+                   service:service
+                 });
+
+
+                }else if(req.user.role == 'salonuser'){
+                 res.render('dashboard/salons/salonservices', {
+                    service:service
+                 });
+
+                }     
+              } else{
+                console.log("There was an error i", err);
+              }
     });
   },
 
   addservice: (req,res)=> {
     Service.find({},(err,service)=>{
       if(err) res.send(err);
-      res.render('dashboard/salons/service');
+                    if (!err){
+                console.log(service);
+
+                if(req.user.role == 'cosmeticuser' ){
+                 res.render('dashboard/cosmetics/service', {
+                   service:service
+                 });
+
+
+                }else if(req.user.role == 'salonuser'){
+                 res.render('dashboard/salons/service', {
+                    service:service
+                 });
+
+                }     
+              } else{
+                console.log("There was an error i", err);
+              }
     });
   },
 
@@ -76,10 +108,24 @@ module.exports = {
   editservice: (req, res)=>{
     Service.findOne({ _id : req.params.id },(err, service)=>{
       if(err) return err;
-      res.render('dashboard/salons/editservice', {
-          title      : "update",
-          service    : service
-      });
+                    if (!err){
+                console.log(service);
+
+                if(req.user.role == 'cosmeticuser' ){
+                 res.render('dashboard/cosmetics/editservice', {
+                   service:service
+                 });
+
+
+                }else if(req.user.role == 'salonuser'){
+                 res.render('dashboard/salons/editservice', {
+                    service:service
+                 });
+
+                }     
+              } else{
+                console.log("There was an error i", err);
+              }
     });  
   },
 

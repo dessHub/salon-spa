@@ -33,7 +33,11 @@ module.exports =  {
           delete req.session.returnTo;
          }else if(req.user.role == 'salonuser'){
           console.log("login as admin user")
-         res.redirect(req.session.returnTo || '/salonindex');
+         res.redirect(req.session.returnTo || '/salonprofile');
+         delete req.session.returnTo;
+         }else if(req.user.role == 'cosmeticuser'){
+          console.log("login as admin user")
+         res.redirect(req.session.returnTo || '/cosmeticprofile');
          delete req.session.returnTo;
        }else if(req.user.role == 'admin'){
           console.log("login as admin user")

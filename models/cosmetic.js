@@ -2,7 +2,7 @@ const mongoose  =require('mongoose');
 const Schema    =mongoose.Schema;
 const User     = require('../models/user');
 
-const SalonSchema = new Schema({
+const CosmeticSchema = new Schema({
     name: {
     	type:String, 
     	index:true
@@ -25,10 +25,10 @@ const SalonSchema = new Schema({
     user: [{type:Schema.Types.ObjectId, ref:User}]
   });
 
-SalonSchema.methods.getSalonByName = (name, callback)=>{
+CosmeticSchema.methods.getCosmeticByName = (name, callback)=>{
   const query = {'name': name};
-  Salon.findOne(query,callback);
+  Cosmetic.findOne(query,callback);
 };
 
-module.exports = mongoose.model('Salon', SalonSchema)
+module.exports = mongoose.model('Cosmetic', CosmeticSchema)
 

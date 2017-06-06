@@ -15,15 +15,12 @@ module.exports    = {
   },
 
   create : (req, res)=>{
-
-      req.checkBody('fname','First name is required').notEmpty();
-      req.checkBody('lname','Last name is required').notEmpty();
-      req.checkBody('email','Email is required').notEmpty();
+      /*req.checkBody('email','Email is required').notEmpty();
       req.checkBody('phone','Phone Number is required').notEmpty();
       req.checkBody('password','Password is required').notEmpty();
       req.checkBody('password2','Please you need to confirm your password').notEmpty();
       req.checkBody('password2', 'The passwords do not match').equals(req.body.password);
-      req.checkBody('email','Email is invalid').isEmail();
+      req.checkBody('email','Email is invalid').isEmail();*/
 
       const errors = req.validationErrors();
       if(errors){
@@ -64,6 +61,10 @@ module.exports    = {
 
                 if(req.user.role == 'customer' ){
                   res.redirect('/find');
+
+                }if(req.user.role == 'cosmeticuser' ){
+                  res.redirect('/cosmeticindex');
+
 
                 }else if(req.user.role == 'salonuser'){
                   res.redirect('/salonindex');

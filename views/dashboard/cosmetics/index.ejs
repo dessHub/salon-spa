@@ -1,11 +1,11 @@
-<% layout('dashboard/salonadmin') %>
+<% layout('dashboard/cosmeticadmin') %>
 <div class ="container">
 <div class="large-10 columns">
 <div data-alert class="alert-box secondary radius">
-  You have successfully logged in as <b><%= user.username %></b> Salon Name: <b><%= salon.name %></b>
+  You have successfully logged in as <b><%= user.username %></b> Cosmetic Name: <b><%= cosmetic.name %></b>
   <a href="#" class="close">&times;</a>
 </div>
-<h class ="align-center">View Appointments</h>
+<h class ="align-center">View Orders</h>
 <div class="row collapse" id="appointment">
 <table>
   <thead>
@@ -21,15 +21,15 @@
     </tr>
   </thead>
   <tbody>
-    <% appointment.forEach(function(appointment, index){ %>
+    <% order.forEach(function(order, index){ %>
     <tr>
     <th scope="row"><%= index + 1 %></th>
-      <td><%= appointment.fname %></td>
-      <td><%= appointment.lname %></td>
-      <td><%= appointment.phone %></td>
-      <td><%= appointment.email %></td>
-      <td><%= appointment.date %></td>
-      <td><%= appointment.time %></td>
+      <td><%= order.fname %></td>
+      <td><%= order.lname %></td>
+      <td><%= order.phone %></td>
+      <td><%= order.email %></td>
+      <td><%= order.date %></td>
+      <td><%= order.time %></td>
       <td>
             <select name="category">
               <option value="">Action</option>

@@ -16,13 +16,14 @@
       <a id="left" href="/" class="brand-logo"><b>Salonhunt<b></a>
       <ul class="right hide-on-med-and-down">
             <li>
-       <form action="/find" method ="get">
+       <form action="/search" method ="POST">
         <div class="input-field hide-on-med-and-down">
-          <input id="search" type="search" required>
+          <input id="search" name="name"placeholder="Enter Salon Name" type="search" required>
           <label class="label-icon" for="search"><i class="fa fa-search" aria-hidden="true"></i></label>
         </div>
       </form>
     </li>
+        <li><a href="/cosmetic">Cosmetics</a></li>
         <li><a href="#section12">Featured</a></li>
         <li><a href="#section">Contact Us</a></li>
        <!--show login and sign up lin user is not logged in -->
@@ -38,6 +39,7 @@
       </ul>
 
       <ul id="nav-mobile" class="side-nav">
+         <li><a href="/cosmetic">Cosmetics</a></li>
         <li><a href="#section11">Featured</a></li>
         <li><a href="#section">Contact Us</a></li>
        <!--show login and sign up lin user is not logged in -->
@@ -66,7 +68,7 @@
     </div>
   </div>
   <div class="parallax">
-    <img class="responsive-img"src="images/girl2.jpg" width="100%">
+    <img class="responsive-img"src="images/new3.jpg" width="100%">
   </div>
 </div>
 
@@ -104,10 +106,10 @@
         <div class="col s12">
            <div class="chip">
              <img src="/<%= salon.img %>" alt="Contact Person">
-                <a href="/salon/item/<%= salon._id %>"><span class="card-title">SalonIris</span></a>
+                <a href="/salon/item/<%= salon._id %>"><span class="card-title"><%= salon.name %></span></a>
           </div>
             <div class="card-content">
-             <h>Location: <%= salon.location %></h>
+             <h><b>Location:</b> <%= salon.location %> <b>Contacts:</b> <%= salon.contact %></h>
             </div>
           <div id="small_post_image" class="col s12">
               <div class="card card-height">
@@ -133,6 +135,7 @@
 <div id ="section12">
 <div class="container">
     <div class="section">
+      <h5 class="center-align">COSMETIC SHOPS</h5>
       <div class="row ">
 
             <!--<p class="center-align ">
@@ -140,23 +143,23 @@
             <span><a class ="featured" href="#">Products</a></span>
             <span><a class ="featured" href="#">Patners</a></span>
             </p>-->
-<% if(adminservice){ %>
- <% adminservice.forEach(function(adminservice, index){ %>
+<% if(cosmetic){ %>
+ <% cosmetic.forEach(function(cosmetic, index){ %>
 <div class="col s12 m6 l4 responsive">
 
    <div id="small_posts_body" class="row small_posts_list">
         <div class="col s12">
            <div class="chip">
              <img src="images/girl4.jpg" alt="Contact Person">
-                <a href="/single"><span class="card-title">SalonIris</span></a>
+                <a href="/cosmetic/item/<%= cosmetic._id %>"><span class="card-title"><%= cosmetic.name %></span></a>
           </div>
             <div class="card-content">
-             <h><%= adminservice.description  %></h>
+              <h><b>Location:</b> <%= cosmetic.location %> <b>Contacts:</b> <%= cosmetic.contact %></h>
             </div>
           <div id="small_post_image" class="col s12">
               <div class="card card-height">
                  <div class="card-image2">
-                  <img class="thumbnail" src="/<%= adminservice.img %>">
+                  <img class="thumbnail" src="/<%= cosmetic.img %>">
                  </div>
                    </div>
             </div>
@@ -205,7 +208,7 @@
                <h4 class="white-text">Useful Links</h4>
                   <p class="grey-text text-lighten-3">Home</p></br>
                   <p class="grey-text text-lighten-3">Services</p></br>
-                  <p class="grey-text text-lighten-3">Views</p>
+                  <p class="grey-text text-lighten-3"><a href="/faq">FAQ</a></p>
               </div>
               <div class="col l4 offset-l2 s12"></br>
                 <ul>

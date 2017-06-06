@@ -18,6 +18,9 @@
  filter:blur(2px) saturate(1);
  height: 300px;
 }
+.collection a.collection-item:not(.active):hover {
+  background-color: transparent;
+}
 
 .icons i{
   font-size:30px;
@@ -554,7 +557,7 @@ nav i.material-icons {
 }
 
 a {
-    color:#FFA500;
+    color:#FFF;
 }
 
 .display-inline{

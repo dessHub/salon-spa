@@ -1,4 +1,5 @@
 const Style     = require('../models/style');
+const Salon     = require('../models/salon');
 
 const multer = require('multer');
 const fs = require('fs');
@@ -11,11 +12,17 @@ module.exports = {
  //style routes 
 
   style: (req, res)=> {
+  Salon.find({},(err,salon)=>{
+   if(err) res.send(err);
+   if (salon){
     Style.find({user:req.user.id},(err,style)=>{
       if(err) res.send(err);
       res.render('dashboard/salons/salonstyles', {
+         salon:salon,
          style:style
       });
+       });
+}
     });
   },
 

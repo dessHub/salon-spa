@@ -1,14 +1,14 @@
 <% layout('dashboard/admin') %>
- <form id="Salon-form" method="post" class="form-horizontal" action="/updateadminsalon<%= salon.id  %>">
+ <form id="Salon-form" method="post" class="form-horizontal" action="/updateadmincosmetic<%= cosmetic.id  %>">
   <div class="row collapse">
    <div class="large-8 small-12 columns">
-   <h>Services</h>
+   <h>usiness Name</h>
      <div class="row collapse">
         <div class="small-3 columns">
-        <label for="Salon Name">Name</label>
+        <label for="Business Name">Name</label>
         </div>
          <div class="small-9 columns">
-          <textarea cols="42" row collapses="5" required class="form-control" placeholder="" id="name" name="name" ><%= salon.name  %></textarea>
+          <textarea cols="42" row collapses="5" required class="form-control" placeholder="" id="name" name="name" ><%= cosmetic.name  %></textarea>
         </div>
         </div>
 
@@ -17,7 +17,7 @@
         <label for="Salon Location">Location</label>
          </div>
          <div class="small-9 columns">
-          <textarea cols="42" row collapses="5" required class="form-control" placeholder="" id="location" name="location" ><%= salon.location  %></textarea>
+          <textarea cols="42" row collapses="5" required class="form-control" placeholder="" id="location" name="location" ><%= cosmetic.location  %></textarea>
         </div>
         </div>
 
@@ -26,7 +26,7 @@
         <label for="Salon Hours">Working Hours</label>
          </div>
          <div class="small-9 columns">
-          <textarea cols="42" row collapses="5" required class="form-control" placeholder="" id="hours" name="hours" ><%= salon.hours  %></textarea>
+          <textarea cols="42" row collapses="5" required class="form-control" placeholder="" id="hours" name="hours" ><%= cosmetic.hours  %></textarea>
         </div>
         </div>
 
@@ -35,7 +35,7 @@
         <label for="Salon Description">Description</label>
          </div>
          <div class="small-9 columns">
-          <textarea cols="42" row collapses="5" required class="form-control" placeholder="" id="description" name="description" ><%= salon.description  %></textarea>
+          <textarea cols="42" row collapses="5" required class="form-control" placeholder="" id="description" name="description" ><%= cosmetic.description  %></textarea>
         </div>
         </div>
 
@@ -44,7 +44,7 @@
         <label for="Salon Contacts">Contacts</label>
          </div>
          <div class="small-9 columns">
-          <textarea cols="42" row collapses="5" required class="form-control" placeholder="" id="contact" name="contact" ><%= salon.contact  %></textarea>
+          <textarea cols="42" row collapses="5" required class="form-control" placeholder="" id="contact" name="contact" ><%= cosmetic.contact  %></textarea>
         </div>
         </div>
 
@@ -54,7 +54,7 @@
         </div>
          <div class="small-9 columns">          
           <label for="exampleFileUpload" class=""></label>
-          <input type="file" id="exampleFileUpload" class="" value="<%= salon.img  %>">
+          <input type="file" id="exampleFileUpload" class="" value="<%= cosmetic.img  %>">
          </div>
     </div>
 

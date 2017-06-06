@@ -26,20 +26,20 @@
 <section id="login">
 <div class ="container">
  <form action="/login" method="post">
-<div class="section">
-       <p class="center-align" style="font-size:35px; line-height:0.3em; ">Login</p>
-        <div class="row">
-          <div class="input-field col s12">
-            <input value="" id="email" type="text" name="email"><label for="email">Email</label>
-          </div>
-          <div class="input-field col s12">
-            <input value="" id="password" type="password" name="password" class="validate"><label for="password">Password</label>
-          </div></br>
-          <div class="center-align">
-            <button class="modal-action modal-close waves-effect waves-red btn-flat ">Log in</button>
-          </div>
-          </div>
-       </div>
+    <fieldset>
+        <legend>Login Details</legend>
+        <div>
+            <label for="email">Email (required):</label>
+            <input type="email" id="email" name="email" value="">
+        </div>
+        <div>
+            <label>Password:</label>
+            <input type="password" id="password" name="password" class="validate" value="">
+        </div>
+        <div class="submit">
+         <button class="modal-action modal-close waves-effect waves-red btn-flat ">Login</button>
+        </div>
+    </fieldset>
 </form>
 </div>
 </section>

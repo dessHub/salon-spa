@@ -1,8 +1,8 @@
 const mongoose  =require('mongoose');
 const Schema    =mongoose.Schema;
-const Salon     = require('../models/salon');
+const Cosmetic     = require('../models/cosmetic');
 
-const AppointmentSchema = new Schema({
+const OrderSchema = new Schema({
     email: {
     	type:String, 
     	index:true
@@ -25,13 +25,13 @@ const AppointmentSchema = new Schema({
     style:{
       type:String
     },
-    salon: [{type:Schema.Types.ObjectId, ref:Salon}]
+    cosmetic: [{type:Schema.Types.ObjectId, ref:Cosmetic}]
   });
 
-AppointmentSchema.methods.getAppointmentByEmail = (email, callback)=>{
+OrderSchema.methods.getOrderByEmail = (email, callback)=>{
   const query = {'email': email};
-  Appointment.findOne(query,callback);
+  Order.findOne(query,callback);
 };
 
-module.exports = mongoose.model('Appointment', AppointmentSchema)
+module.exports = mongoose.model('Order', OrderSchema)
 

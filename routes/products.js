@@ -12,16 +12,48 @@ module.exports = {
   product: (req, res)=> {
     Product.find({user:req.user.id},(err,product)=>{
       if(err) res.send(err);
-      res.render('dashboard/salons/salonproducts', {
-         product:product
-      });
+                    if (!err){
+                console.log(product);
+
+                if(req.user.role == 'cosmeticuser' ){
+                 res.render('dashboard/cosmetics/cosmeticproducts', {
+                   product:product
+                 });
+
+
+                }else if(req.user.role == 'salonuser'){
+                 res.render('dashboard/salons/salonproducts', {
+                    product:product
+                 });
+
+                }     
+              } else{
+                console.log("There was an error i", err);
+              }
     });
   },
 
   newproduct: (req,res)=> {
     Product.find({},(err,product)=>{
       if(err) res.send(err);
-      res.render('dashboard/salons/product');
+                    if (!err){
+                console.log(product);
+
+                if(req.user.role == 'cosmeticuser' ){
+                 res.render('dashboard/cosmetics/product', {
+                   product:product
+                 });
+
+
+                }else if(req.user.role == 'salonuser'){
+                 res.render('dashboard/salons/product', {
+                    product:product
+                 });
+
+                }     
+              } else{
+                console.log("There was an error i", err);
+              }
     });
   },
 
@@ -76,10 +108,24 @@ module.exports = {
   editproduct: (req, res)=>{
     Product.findOne({ _id : req.params.id },(err, product)=>{
       if(err) return err;
-      res.render('dashboard/salons/editproduct', {
-          title      : "update",
-          product   : product
-      });
+                    if (!err){
+                console.log(product);
+
+                if(req.user.role == 'cosmeticuser' ){
+                 res.render('dashboard/cosmetics/editproduct', {
+                   product:product
+                 });
+
+
+                }else if(req.user.role == 'salonuser'){
+                 res.render('dashboard/salons/editproduct', {
+                    product:product
+                 });
+
+                }     
+              } else{
+                console.log("There was an error i", err);
+              }
     });  
   },
 

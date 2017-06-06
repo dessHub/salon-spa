@@ -13,16 +13,48 @@ module.exports = {
   news: (req, res)=> {
     News.find({user:req.user.id},(err,news)=>{
       if(err) res.send(err);
-      res.render('dashboard/salons/salonnews', {
-         news  :news
-      });
+                    if (!err){
+                console.log(news);
+
+                if(req.user.role == 'cosmeticuser' ){
+                 res.render('dashboard/cosmetics/cosmeticnews', {
+                   news:news
+                 });
+
+
+                }else if(req.user.role == 'salonuser'){
+                 res.render('dashboard/salons/salonnews', {
+                    news:news
+                 });
+
+                }     
+              } else{
+                console.log("There was an error i", err);
+              }
     });
   },
 
   newnews: (req,res)=> {
     News.find({},(err,news)=>{
       if(err) res.send(err);
-      res.render('dashboard/salons/news');
+                    if (!err){
+                console.log(news);
+
+                if(req.user.role == 'cosmeticuser' ){
+                 res.render('dashboard/cosmetics/news', {
+                   news:news
+                 });
+
+
+                }else if(req.user.role == 'salonuser'){
+                 res.render('dashboard/salons/news', {
+                    news:news
+                 });
+
+                }     
+              } else{
+                console.log("There was an error i", err);
+              }
     });
   },
 
@@ -77,10 +109,24 @@ module.exports = {
   editnews: (req, res)=>{
     News.findOne({ _id : req.params.id },(err, news)=>{
       if(err) return err;
-      res.render('dashboard/salons/editnews', {
-          title      : "update",
-          news       : news
-      });
+                    if (!err){
+                console.log(news);
+
+                if(req.user.role == 'cosmeticuser' ){
+                 res.render('dashboard/cosmetics/editnews', {
+                   news:news
+                 });
+
+
+                }else if(req.user.role == 'salonuser'){
+                 res.render('dashboard/salons/editnews', {
+                    news:news
+                 });
+
+                }     
+              } else{
+                console.log("There was an error i", err);
+              }
     });  
   },
 

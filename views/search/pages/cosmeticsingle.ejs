@@ -1,22 +1,27 @@
 <% layout('search/salons') %>
 <div id="section2">
 <div class="row">
-<% include ../partials/left %>
+        <div class="col s4 m4 l2">
+            <div class="collection">
+              <a href="/findproduct<%= cosmetic.user %>" class="collection-item">Our Products</a>
+              <a href="#modal5" class="collection-item">Make Order</a>
+            </div>
+       </div>
 
  <div class="col s8 m8 l7" id="test1">
 
   <div class="collection">
   <div class="collection-item1">
-    <h><b><%= salon.name %></b><h>
+    <h><b><%= cosmetic.name %></b><h>
     <h><a href ="#map"><i class="fa fa-map-marker"></i></a></h>
-    <a href="#modal2" class="right btn-flat">Schedule Appointment</a>
+    <a href="#modal5" class="right btn-flat">Make Order</a>
   </div>
   <a href="#!" class="collection-item1">
-    <h1>Location:<%= salon.location %></h1>
+    <h1>Location:<%= cosmetic.location %></h1>
     <h1>Building: Continental</h1>
         <div class="card card-height1">
             <div class="card-image4">
-             <img class="responsive-img" src="/<%= salon.img %>">
+             <img class="responsive-img" src="/<%= cosmetic.img %>">
             </div>
         </div>
   </a>
@@ -25,7 +30,7 @@
   <div class="collection">
     <a href="#!" class="collection-item1">Salon Infomation</a>
     <a href="#!" class="collection-item1">
-    <h1><%= salon.description %></p>
+    <h1><%= cosmetic.description %></p>
     </h1></a>
   </div>
 
@@ -56,65 +61,35 @@
 </div>
 </div>
 
-<% include /templates/loginform.ejs %>
 
-<div id="modal2" class="modal modal-fixed-footer">
+<div id="modal5" class="modal modal-fixed-footer">
  <div class="modal-content">
- <h3 class="center">Schedule Appointment</h3>
+ <h3 class="center">Make Order</h3>
   <div class="row">
-    <form class="col s12 m12 l12" action="/postappointment" method="post">
+    <form class="col s12 m12 l12">
       <div class="row">
-
-           <div>
-            <input type="hidden" name="id" value="<%= salon.id %>" />
-           </div>
         <div class="input-field col s12 m12 l6">
-          <input id="fname" name="fname" type="text" class="validate">
+          <input id="first_name" type="text" class="validate">
           <label for="first_name">First Name</label>
         </div>
         <div class="input-field col s12 m12 l6">
-          <input id="lname" name="lname" type="text" class="validate">
+          <input id="last_name" type="text" class="validate">
           <label for="last_name">Last Name</label>
         </div>
       </div>
       <div class="row">
         <div class="input-field col s12 m12 l6">
-           <input id="phone" name="phone" type="text" class="validate">         
+           <input id="phone" type="text" class="validate">         
            <label for="phone">Phone Number</label>
         </div>
         <div class="input-field col s12 m12 l6">
-          <input id="email" name="email" type="email" class="validate">
+          <input id="email" type="email" class="validate">
           <label for="email">Email</label>
         </div>
       </div>
       <div class="row">
-        <div class="input-field col s12 m12 l6">
-            <select name="category">
-              <option value="">Select Salon</option>
-              <option value="salon1">SalonIris</option>
-              <option value="salon2">BeautyClick</option>
-            </select>
-        </div>
-        <div class="input-field col s12 m12 l6">
-            <select name="style">
-              <option value="">Select Style</option>
-              <option value="salon1">Braiding</option>
-              <option value="salon2">Weaving</option>
-              <option value="salon2">Other</option>
-            </select>
-        </div>
-      </div>
-      <div class="row">
-        <div class="input-field col s12 m12 l6">
-          <input type="date" id="date" name="date" data-date-inline-picker="false" data-date-open-on-focus="true" />
-        </div>
-        <div class="input-field col s12 m12 l6">
-         <input type="time" id="time" name="time">
-        </div>
-      </div>
-      <div class="row">
         <div class="col s12">
-       <button class="success button left">Submit</button>
+      <a href="/profile#!" class="modal-action modal-close waves-effect waves-red btn-flat ">Submit</a>
           </div>
         </div>
       </div>

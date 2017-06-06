@@ -1,5 +1,5 @@
 const Appointment     = require('../models/appoinment');
-
+const Salon     = require('../models/salon');
 
 module.exports = {
 
@@ -8,12 +8,14 @@ module.exports = {
 
 
   postappointment: (req,res)=>{
-
+  //  Salon.find({_id:req.params.id},(err, salon)=>{
+    //  if(err) res.send(err);
        const appointment = new Appointment();
        appointment.email = req.body.email;
        appointment.fname = req.body.fname;
        appointment.lname = req.body.lname;
        appointment.phone = req.body.phone;
+       appointment.salon = req.body.id;
        appointment.date = req.body.date;
        appointment.time = req.body.time;
        console.log(appointment.email);
@@ -25,7 +27,7 @@ module.exports = {
         console.log(appointment)
         res.redirect('/find');
       });
-
+    //});
   },
 
   deleteappointment : (req, res)=>{
