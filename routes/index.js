@@ -31,7 +31,7 @@ const fs             = require('fs');
 const passport       = require('passport');
 
 /*
- * @isLoggedIn function checks to see if user is 
+ * @isLoggedIn function checks to see if user is
  * logged in if not, renders the login page
 */
 
@@ -54,7 +54,7 @@ router.get('/register',           userRoutes.new);
 router.post('/signup',            userRoutes.create);
 
 /*
- * @session routes 
+ * @session routes
 */
 router.get('/login',           sessionRoutes.new);
 router.post('/login',          sessionRoutes.create);
@@ -93,7 +93,7 @@ router.get('/adsalon',           adminRoutes.adsalon);
 router.get('/adminnews',         adminRoutes.news);
 router.get('/adnews',            adminRoutes.adnews);*/
 
-router.post('/uploadadminservice',     isLoggedIn,  adminserviceupload.single('image'), adminservicesRoutes.postservice);             
+router.post('/uploadadminservice',     isLoggedIn,  adminserviceupload.single('image'), adminservicesRoutes.postservice);
 router.get('/adminservice',            isLoggedIn,   adminservicesRoutes.services);
 router.get('/addadminservice',         isLoggedIn,  adminservicesRoutes.addservice);
 router.get('/editadminservice/:id',    isLoggedIn,  adminservicesRoutes.editservice);
@@ -125,7 +125,7 @@ router.get('/editsalon/:id',     isLoggedIn,  salonRoutes.editsalon);
 router.post('/updatesalon:id',   isLoggedIn, salonRoutes.updatesalon);
 
 
-router.post('/uploadservice',    isLoggedIn,   serviceupload.single('image'), servicesRoutes.postservice);             
+router.post('/uploadservice',    isLoggedIn,   serviceupload.single('image'), servicesRoutes.postservice);
 router.get('/service',            isLoggedIn,  servicesRoutes.services);
 router.get('/addservice',         isLoggedIn,  servicesRoutes.addservice);
 router.get('/editservice/:id',    isLoggedIn,  servicesRoutes.editservice);
@@ -157,7 +157,7 @@ router.get('/newsdelete/:id',  isLoggedIn,  newsRoutes.deletenews);
 Search Routes
 */
 router.get('/find',             searchRoutes.index);
-router.post('/search',             searchRoutes.search);
+router.get('/search',             searchRoutes.search);
 router.get('/cosmetic',             searchRoutes.cosmetic);
 router.get('/cosmetic/item/:id',    searchRoutes.cosmeticitem);
 router.get('/salon/item/:id',            searchRoutes.item);

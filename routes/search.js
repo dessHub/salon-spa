@@ -22,10 +22,13 @@ module.exports = {
   },
 
 search: (req, res)=> {
+        if (req.query.name) {
+          console.log(req.query.category);
+           const regex = new RegExp(escapeRegex(req.query.name), 'gi');
+
       var db = req.db;
     console.log(req.body);
-    Salon.find({ 'name': req.body.name,
-                    'location' :req.body.location  // if this field is blank in the form how can I ignore it?
+    Salon.find({ 'name': regex // if this field is blank in the form how can I ignore it?
 
     }, function(err, salon){
         if (err) return err;
@@ -40,6 +43,11 @@ search: (req, res)=> {
     });
       }
     });
+  }else{
+
+res.redirect('/');
+console.log("klklkl");
+  }
   },
 
 
@@ -82,7 +90,7 @@ search: (req, res)=> {
         });
     }
 });
-}, 
+},
 
  item : (req, res)=>{
     Adminnews.find({},(err,adminnews)=>{
@@ -97,7 +105,7 @@ search: (req, res)=> {
         });
     }
 });
-}, 
+},
 
 /*  getbytitle: ((req, res) => {
         const title = req.params.title;
@@ -170,4 +178,8 @@ search: (req, res)=> {
       });
   }
 
+};
+
+function escapeRegex(text){
+    return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
 };
