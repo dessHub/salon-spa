@@ -16,9 +16,9 @@
       <a id="left" href="/" class="brand-logo"><b>Salonhunt<b></a>
       <ul class="right hide-on-med-and-down">
             <li>
-       <form action="/search" method ="POST">
+       <form action="/search" method ="GET">
         <div class="input-field hide-on-med-and-down">
-          <input id="search" name="name"placeholder="Enter Salon Name" type="search" required>
+          <input id="search" name="name" placeholder="Enter Salon Name" type="search" required>
           <label class="label-icon" for="search"><i class="fa fa-search" aria-hidden="true"></i></label>
         </div>
       </form>
@@ -27,14 +27,14 @@
         <li><a href="#section12">Featured</a></li>
         <li><a href="#section">Contact Us</a></li>
        <!--show login and sign up lin user is not logged in -->
-       <% if(!user) {%> 
+       <% if(!user) {%>
         <li><a href="/login">Login</a></li>
         <li><a href="/register">Signup</a></li>
        <%}%>
        <!--show logout and display namcurrent user is logged in -->
-       <% if(user) {%> 
-       <li><a href="#">Welcome <%= user.username %></a></li> 
-       <li><a href="/logout">Logout</a></li> 
+       <% if(user) {%>
+       <li><a href="#">Welcome <%= user.username %></a></li>
+       <li><a href="/logout">Logout</a></li>
        <%}%>
       </ul>
 
@@ -43,14 +43,14 @@
         <li><a href="#section11">Featured</a></li>
         <li><a href="#section">Contact Us</a></li>
        <!--show login and sign up lin user is not logged in -->
-       <% if(!user) {%> 
+       <% if(!user) {%>
         <li><a href="/login">Login</a></li>
         <li><a href="/register">Signup</a></li>
        <%}%>
        <!--show logout and display namcurrent user is logged in -->
-       <% if(user) {%> 
-       <li><a href="#">Welcome <%= user.username %></a></li> 
-       <li><a href="/logout">Logout</a></li> 
+       <% if(user) {%>
+       <li><a href="#">Welcome <%= user.username %></a></li>
+       <li><a href="/logout">Logout</a></li>
        <%}%>
       </ul>
       <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
