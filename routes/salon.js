@@ -7,9 +7,12 @@ const upload = multer({ dest: 'uploads/' });
 
 module.exports = {
 profile : (req, res)=> {
-  Salon.findOne({},(err,salon)=>{
+  console.log("here");
+  console.log(req.user._id);
+  Salon.find({'user':req.user._id},(err,salon)=>{
    if(err) res.send(err);
-   if (salon){
+   console.log(salon);
+   
   Appointment.find({},(err,appointment)=>{
    if(err) res.send(err);
    res.render('dashboard/salons/index', {
@@ -17,7 +20,7 @@ profile : (req, res)=> {
     appointment : appointment
    });
   });
-}
+
 });
   },
 
