@@ -36,7 +36,7 @@ search: (req, res)=> {
          if (salon){
     Adminnews.find({},(err,adminnews)=>{
       if(err) res.send(err);
-      res.render('search/pages/search', {
+      res.render('search/pages/index', {
          adminnews:adminnews,
          salon:salon
       });
