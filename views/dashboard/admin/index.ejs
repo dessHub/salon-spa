@@ -4,9 +4,9 @@
 <h class ="align-center">Services</h>
 <div class="row collapse" id="appointment">
 <a class="small button success left " href="/addsalon">Add Salon</a>
-<table>
+<table class="table">
   <thead>
-    <tr>
+   
       <th>#</th>
       <th>Salon Name</th>
       <th>Location</th>
@@ -15,12 +15,12 @@
       <th>Posts</th>
       <th>Contacts</th>
       <th>Options</th>
-    </tr>
+  
   </thead>
   <tbody>
   <% salon.forEach(function(salon, index){ %>
     <tr>
-    <th scope="row"><%= index + 1 %></th>
+    <td scope="row"><%= index + 1 %></td>
       <td><%= salon.name  %></td>
       <td><%= salon.location  %></td>
       <td><%= salon.hours  %></td>

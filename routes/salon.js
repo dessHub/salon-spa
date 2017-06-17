@@ -7,8 +7,6 @@ const upload = multer({ dest: 'uploads/' });
 
 module.exports = {
 profile : (req, res)=> {
-  console.log("here");
-  console.log(req.user._id);
   Salon.find({'user':req.user._id},(err,salon)=>{
    if(err) res.send(err);
    console.log(salon);
