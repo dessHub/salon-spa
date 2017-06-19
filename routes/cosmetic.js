@@ -6,10 +6,9 @@ const path = require('path');
 const upload = multer({ dest: 'uploads/' });
 
 module.exports = {
-profile: (req, res)=> {
-  Cosmetic.find({user:req.params.user},(err,cosmetic)=>{
+/*profile: (req, res)=> {
+  Cosmetic.find({user:req.params._id},(err,cosmetic)=>{
    if(err) res.send(err);
-   if (cosmetic){
   Order.find({},(err,order)=>{
    if(err) res.send(err);
    res.render('dashboard/cosmetics/index', {
@@ -17,7 +16,23 @@ profile: (req, res)=> {
     order : order
    });
   });
-}
+});
+  },*/
+profile : (req, res)=> {
+  Cosmetic.find({'user':req.user._id},(err,cosmetic)=>{
+   if(err) res.send(err);
+   var cosmetic_id = "";
+   for(i=0; i<cosmetic.length; i++){
+    cosmetic_id = cosmetic[i].id;
+   }
+  Order.find({"cosmetic":cosmetic_id},(err,order)=>{
+   if(err) res.send(err);
+   res.render('dashboard/cosmetics/index', {
+    cosmetic : cosmetic,
+    order : order
+   });
+  });
+
 });
   },
 

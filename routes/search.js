@@ -98,11 +98,19 @@ console.log("klklkl");
    if (adminnews){
     Salon.findOne({_id:req.params.id}, (err, salon)=>{
       if(err) res.send(err);
+         if (salon){
+    Service.find({user:req.params.user},(err,service)=>{
+      if(err) res.send(err);
+    if (service){
             res.render('search/pages/single',{
                 adminnews:adminnews,
-                salon:salon
+                salon:salon,
+                service:service
             });
+          }
         });
+    }
+     });
     }
 });
 },

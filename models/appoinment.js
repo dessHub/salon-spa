@@ -7,11 +7,8 @@ const AppointmentSchema = new Schema({
     	type:String, 
     	index:true
     },
-    fname:{
+    name:{
     	type:String
-    },
-    lname:{
-      type:String
     },
     phone:{
       type:Number

@@ -7,29 +7,23 @@
 </div>
 <h class ="align-center">View Orders</h>
 <div class="row collapse" id="appointment">
-<table>
+<table class="table">
   <thead>
-    <tr>
       <th>#</th>
-      <th>First Name</th>
-      <th>Last Name</th>
+      <th>Name</th>
       <th>Phone Number</th>
       <th>Email</th>
-      <th>Date</th>
-      <th>Time</th>
+      <th>Product</th>
       <th>Action</th>
-    </tr>
   </thead>
   <tbody>
     <% order.forEach(function(order, index){ %>
     <tr>
     <th scope="row"><%= index + 1 %></th>
-      <td><%= order.fname %></td>
-      <td><%= order.lname %></td>
+      <td><%= order.name %></td>
       <td><%= order.phone %></td>
       <td><%= order.email %></td>
-      <td><%= order.date %></td>
-      <td><%= order.time %></td>
+      <td><%= order.product %></td>
       <td>
             <select name="category">
               <option value="">Action</option>

@@ -7,22 +7,13 @@ const OrderSchema = new Schema({
     	type:String, 
     	index:true
     },
-    fname:{
+    name:{
     	type:String
-    },
-    lname:{
-      type:String
     },
     phone:{
       type:Number
     },
-    date: { 
-    	type : Date
-    },
-    time:{
-      type:String
-    },
-    style:{
+    product:{
       type:String
     },
     cosmetic: [{type:Schema.Types.ObjectId, ref:Cosmetic}]

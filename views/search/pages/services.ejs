@@ -3,7 +3,7 @@
 <div class="row">
         <div class="col s4 m4 l2">
             <div class="collection">
-              <a href="#modal1" class="collection-item">Schedule Appointment</a>
+              <a href="#modal2" class="collection-item">Schedule Appointment</a>
             </div>
        </div>
  <div class="col s8 m8 l7" id="test1">
@@ -25,9 +25,6 @@
                  </div>
                    </div>
             </div>
-          <div class="app">
-            <a  href="#modal4" class="btn-flat">Schedule for this </a>
-          </div>
          </div>
        </div>
 
@@ -55,9 +52,6 @@
                  </div>
                    </div>
             </div>
-          <div class="app">
-            <a href="#modal5" class="btn-flat">Make Order</a>
-          </div>
          </div>
        </div>
 </div>
@@ -89,5 +83,58 @@
    
 </div>
 </div>
+<div id="modal2" class="modal modal-fixed-footer">
+ <div class="modal-content">
+ <h3 class="center">Schedule Appointment</h3>
+  <div class="row">
+    <form class="col s12 m12 l12" action="/postappointment" method="post">
+      <div class="row">
 
-<% include /templates/appointment.ejs %>
+           <div>
+            <input type="hidden" name="id" value="<%= salon.id %>" />
+           </div>
+        <div class="input-field col s12 m12 l6">
+          <input id="name" name="name" type="text" class="validate">
+          <label for="first_name">Firstname Lastname</label>
+        </div>
+        <div class="input-field col s12 m12 l6">
+          <input id="email" name="email" type="email" class="validate">
+          <label for="email">Email</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12 m12 l6">
+           <input id="phone" name="phone" type="text" class="validate">         
+           <label for="phone">Phone Number</label>
+        </div>
+        <div class="input-field col s12 m12 l6">
+            <select name="style">
+              <option value="">Select Style</option>
+              <option value="Braiding">Braiding</option>
+              <option value="Weaving">Weaving</option>
+              <option value="Waxing">Waxing</option>
+              <option value="Haircut">Haircut</option>
+              <option value="other">Other</option>
+            </select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12 m12 l6">
+          <input type="date" id="date" name="date" data-date-inline-picker="false" data-date-open-on-focus="true" />
+        </div>
+        <div class="input-field col s12 m12 l6">
+         <input type="time" id="time" name="time">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s12">
+       <button class="success button left">Submit</button>
+          </div>
+        </div>
+      </div>
+    </form>
+
+  </div>
+ </div>
+  <div class="modal-footer"></div>
+</div>

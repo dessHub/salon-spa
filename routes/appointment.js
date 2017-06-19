@@ -1,5 +1,6 @@
 const Appointment     = require('../models/appoinment');
 const Salon     = require('../models/salon');
+const Order     = require('../models/order');
 
 module.exports = {
 
@@ -12,11 +13,11 @@ module.exports = {
     //  if(err) res.send(err);
        const appointment = new Appointment();
        appointment.email = req.body.email;
-       appointment.fname = req.body.fname;
-       appointment.lname = req.body.lname;
+       appointment.name = req.body.name;
        appointment.phone = req.body.phone;
        appointment.salon = req.body.id;
        appointment.date = req.body.date;
+       appointment.style = req.body.style;
        appointment.time = req.body.time;
        console.log(appointment.email);
         
@@ -71,7 +72,27 @@ module.exports = {
           console.log(appointment)
           res.redirect('/appointment');
         });
-     }
+     },
 
+  postorder: (req,res)=>{
+  //  Salon.find({_id:req.params.id},(err, salon)=>{
+    //  if(err) res.send(err);
+       const order = new Order();
+       order.email = req.body.email;
+       order.name = req.body.name;
+       order.phone = req.body.phone;
+       order.cosmetic = req.body.id;
+       order.product = req.body.product;
+       console.log(order.email);
+        
+       order.save((err, order)=>{
+        if(err) return (err);
+          
+          
+        console.log(order)
+        res.redirect('/cosmetic');
+      });
+    //});
+  },
 
 };

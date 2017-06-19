@@ -7,8 +7,7 @@ const Role       = require('./role.js');
 const UserSchema = Schema({
     username: { type: String, index: true },
     password: { type: String },
-    fname: { type: String },
-    lname: { type: String },
+    username: { type: String },
     phone:{ type: Number},
     email:    { type: String },
     role:   { type: String }  

@@ -43,6 +43,32 @@ function isLoggedIn(req, res, next) {
   res.redirect('/login');
 }
 
+function isAdmin(req, res, next) {
+  var user = req.user;
+  if (user.role=="admin") {
+    return next();
+  }
+  req.session.oldUrl = req.url;
+  res.send("Page not found");
+}
+
+function isSalon(req, res, next) {
+  var user = req.user;
+  if (user.role=="salonuser") {
+    return next();
+  }
+  req.session.oldUrl = req.url;
+  res.send("Page not found");
+}
+
+function isCosmetic(req, res, next) {
+  var user = req.user;
+  if (user.role=="cosmeticuser") {
+    return next();
+  }
+  req.session.oldUrl = req.url;
+  res.send("Page not found");
+}
 
 router.get('/',                homeRoutes.index);
 router.get('/get:name',        homeRoutes.get);
@@ -63,27 +89,27 @@ router.get('/logout',          sessionRoutes.delete);
 /*
 Cosmetic Routes
 */
-router.get('/cosmeticindex',       cosmeticRoutes.index);
-router.get('/cosmeticprofile',      isLoggedIn,  cosmeticRoutes.profile);
-router.post('/uploadcosmetic',      isLoggedIn, cosmeticupload.single('image'), cosmeticRoutes.postcosmetic);
-router.get('/editcosmetic/:id',     isLoggedIn,  cosmeticRoutes.editcosmetic);
-router.post('/updatecosmetic/:id',   isLoggedIn, cosmeticRoutes.updatecosmetic);
+router.get('/cosmeticindex',       isCosmetic, cosmeticRoutes.index);
+router.get('/cosmeticprofile',      isCosmetic,  cosmeticRoutes.profile);
+router.post('/uploadcosmetic',      isCosmetic, cosmeticupload.single('image'), cosmeticRoutes.postcosmetic);
+router.get('/editcosmetic/:id',     isCosmetic,  cosmeticRoutes.editcosmetic);
+router.post('/updatecosmetic/:id',   isCosmetic, cosmeticRoutes.updatecosmetic);
 
 /*
 Admin Routes
 */
-router.get('/adminindex',             isLoggedIn, adminRoutes.index);
-router.get('/admincosmetic',          isLoggedIn, adminRoutes.cosmetic);
-router.get('/addsalon',               isLoggedIn, adminRoutes.addsalon);
-router.get('/addcosmetic',               isLoggedIn, adminRoutes.addcosmetic);
-router.post('/uploadadminsalon',      isLoggedIn, salonupload.single('image'), adminRoutes.postsalon);
-router.post('/uploadadmincosmetic',      isLoggedIn, cosmeticupload.single('image'), adminRoutes.postcosmetic);
-router.get('/editadminsalon/:id',     isLoggedIn, adminRoutes.editsalon);
-router.get('/editadmincosmetic/:id',     isLoggedIn, adminRoutes.editcosmetic);
-router.post('/updateadminsalon:id',   isLoggedIn, adminRoutes.updatesalon);
-router.post('/updateadmincosmetic:id',   isLoggedIn, adminRoutes.updatecosmetic);
-router.get('/salondelete/:id',        isLoggedIn, adminRoutes.deletesalon);
-router.get('/cosmeticdelete/:id',        isLoggedIn, adminRoutes.deletecosmetic);
+router.get('/adminindex',             isAdmin, adminRoutes.index);
+router.get('/admincosmetic',          isAdmin, adminRoutes.cosmetic);
+router.get('/addsalon',               isAdmin, adminRoutes.addsalon);
+router.get('/addcosmetic',               isAdmin, adminRoutes.addcosmetic);
+router.post('/uploadadminsalon',      isAdmin, salonupload.single('image'), adminRoutes.postsalon);
+router.post('/uploadadmincosmetic',      isAdmin, cosmeticupload.single('image'), adminRoutes.postcosmetic);
+router.get('/editadminsalon/:id',     isAdmin, adminRoutes.editsalon);
+router.get('/editadmincosmetic/:id',     isAdmin, adminRoutes.editcosmetic);
+router.post('/updateadminsalon:id',   isAdmin, adminRoutes.updatesalon);
+router.post('/updateadmincosmetic:id',   isAdmin, adminRoutes.updatecosmetic);
+router.get('/salondelete/:id',        isAdmin, adminRoutes.deletesalon);
+router.get('/cosmeticdelete/:id',        isAdmin, adminRoutes.deletecosmetic);
 /*router.get('/adminservice',      adminRoutes.service);
 router.get('/adservice',         adminRoutes.adservice);
 router.get('/adminproduct',      adminRoutes.product);
@@ -93,36 +119,36 @@ router.get('/adsalon',           adminRoutes.adsalon);
 router.get('/adminnews',         adminRoutes.news);
 router.get('/adnews',            adminRoutes.adnews);*/
 
-router.post('/uploadadminservice',     isLoggedIn,  adminserviceupload.single('image'), adminservicesRoutes.postservice);
-router.get('/adminservice',            isLoggedIn,   adminservicesRoutes.services);
-router.get('/addadminservice',         isLoggedIn,  adminservicesRoutes.addservice);
-router.get('/editadminservice/:id',    isLoggedIn,  adminservicesRoutes.editservice);
-router.post('/updateadminservice:id',  isLoggedIn,   adminservicesRoutes.updateservice);
-router.get('/adminservicedelete/:id',  isLoggedIn,  adminservicesRoutes.deleteservice);
+router.post('/uploadadminservice',     isAdmin,  adminserviceupload.single('image'), adminservicesRoutes.postservice);
+router.get('/adminservice',            isAdmin,   adminservicesRoutes.services);
+router.get('/addadminservice',         isAdmin,  adminservicesRoutes.addservice);
+router.get('/editadminservice/:id',    isAdmin,  adminservicesRoutes.editservice);
+router.post('/updateadminservice:id',  isAdmin,   adminservicesRoutes.updateservice);
+router.get('/adminservicedelete/:id',  isAdmin,  adminservicesRoutes.deleteservice);
 
-router.get('/adminproduct',            isLoggedIn,  adminproductsRoutes.product);
-router.post('/uploadadminproduct',     isLoggedIn,  adminproductupload.single('image'), adminproductsRoutes.postproduct);
-router.get('/newadminproduct',         isLoggedIn,  adminproductsRoutes.newproduct);
-router.get('/editadminproduct/:id',    isLoggedIn,  adminproductsRoutes.editproduct);
-router.post('/updateadminproduct:id',  isLoggedIn,  adminproductsRoutes.updateproduct);
-router.get('/adminproductdelete/:id',  isLoggedIn,  adminproductsRoutes.deleteproduct);
+router.get('/adminproduct',            isAdmin,  adminproductsRoutes.product);
+router.post('/uploadadminproduct',     isAdmin,  adminproductupload.single('image'), adminproductsRoutes.postproduct);
+router.get('/newadminproduct',         isAdmin,  adminproductsRoutes.newproduct);
+router.get('/editadminproduct/:id',    isAdmin,  adminproductsRoutes.editproduct);
+router.post('/updateadminproduct:id',  isAdmin,  adminproductsRoutes.updateproduct);
+router.get('/adminproductdelete/:id',  isAdmin,  adminproductsRoutes.deleteproduct);
 
-router.get('/adminnews',            isLoggedIn,   adminnewsRoutes.news);
-router.post('/uploadadminnews',     isLoggedIn,   adminnewsupload.single('image'), adminnewsRoutes.postnews);
-router.get('/newadminnews',         isLoggedIn,  adminnewsRoutes.newnews);
-router.get('/editadminnews/:id',    isLoggedIn,   adminnewsRoutes.editnews);
-router.post('/updateadminnews:id',  isLoggedIn,  adminnewsRoutes.updatenews);
-router.get('/adminnewsdelete/:id',  isLoggedIn,  adminnewsRoutes.deletenews);
+router.get('/adminnews',            isAdmin,   adminnewsRoutes.news);
+router.post('/uploadadminnews',     isAdmin,   adminnewsupload.single('image'), adminnewsRoutes.postnews);
+router.get('/newadminnews',         isAdmin,  adminnewsRoutes.newnews);
+router.get('/editadminnews/:id',    isAdmin,   adminnewsRoutes.editnews);
+router.post('/updateadminnews:id',  isAdmin,  adminnewsRoutes.updatenews);
+router.get('/adminnewsdelete/:id',  isAdmin,  adminnewsRoutes.deletenews);
 
 
 /*
 Salon Routes
 */
-router.get('/salonindex',        isLoggedIn, salonRoutes.index);
-router.get('/salonprofile',      isLoggedIn,  salonRoutes.profile);
-router.post('/uploadsalon',      isLoggedIn, salonupload.single('image'), salonRoutes.postsalon);
-router.get('/editsalon/:id',     isLoggedIn,  salonRoutes.editsalon);
-router.post('/updatesalon:id',   isLoggedIn, salonRoutes.updatesalon);
+router.get('/salonindex',        isSalon, salonRoutes.index);
+router.get('/salonprofile',      isSalon,  salonRoutes.profile);
+router.post('/uploadsalon',      isSalon, salonupload.single('image'), salonRoutes.postsalon);
+router.get('/editsalon/:id',     isSalon,  salonRoutes.editsalon);
+router.post('/updatesalon:id',   isSalon, salonRoutes.updatesalon);
 
 
 router.post('/uploadservice',    isLoggedIn,   serviceupload.single('image'), servicesRoutes.postservice);
@@ -166,5 +192,5 @@ router.get('/findservice:user', 		 searchRoutes.service);
 router.get('/findproduct:user', 		 searchRoutes.product);
 
 router.post('/postappointment',  appointmentRoutes.postappointment);
-
+router.post('/postorder',  appointmentRoutes.postorder);
 module.exports=router;

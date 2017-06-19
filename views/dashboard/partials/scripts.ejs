@@ -23,7 +23,18 @@
          buttons: [
              'copy', 'csv', 'excel', 'pdf', 'print'
          ], 
-         destroy: true
+         destroy: true,
+         lengthMenu:true,
+         lengthMenu: [[10, 25, 50, 100, -1], [10, 25, 50, 100, "All"]]
+     });
+     $(".table1").DataTable({
+         dom: 'Bfrtip',
+         buttons: [
+             'copy', 'csv', 'excel', 'pdf', 'print'
+         ], 
+         destroy: true,
+         lengthMenu:true,
+         lengthMenu: [[10, 25, 50, 100, -1], [10, 25, 50, 100, "All"]]
      });
   }
   document.onready= function (){

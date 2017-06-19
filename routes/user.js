@@ -33,8 +33,6 @@ module.exports    = {
 
       
       const user      = new User();
-      user.fname    = req.body.fname;
-      user.lname    = req.body.lname;
       user.email    = req.body.email;
       user.phone    = req.body.phone;
       user.username = req.body.username;

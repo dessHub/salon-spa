@@ -9,9 +9,11 @@ module.exports = {
 profile : (req, res)=> {
   Salon.find({'user':req.user._id},(err,salon)=>{
    if(err) res.send(err);
-   console.log(salon);
-   
-  Appointment.find({},(err,appointment)=>{
+   var salon_id = "";
+   for(i=0; i<salon.length; i++){
+    salon_id = salon[i].id;
+   }
+  Appointment.find({"salon":salon_id},(err,appointment)=>{
    if(err) res.send(err);
    res.render('dashboard/salons/index', {
     salon : salon,

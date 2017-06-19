@@ -4,7 +4,7 @@
         <div class="col s4 m4 l2">
             <div class="collection">
               <a href="/findproduct<%= cosmetic.user %>" class="collection-item">Our Products</a>
-              <a href="#modal5" class="collection-item">Make Order</a>
+              <a href="#modal3" class="collection-item">Make Order</a>
             </div>
        </div>
 
@@ -14,7 +14,7 @@
   <div class="collection-item1">
     <h><b><%= cosmetic.name %></b><h>
     <h><a href ="#map"><i class="fa fa-map-marker"></i></a></h>
-    <a href="#modal5" class="right btn-flat">Make Order</a>
+    <a href="#modal3" class="right btn-flat">Make Order</a>
   </div>
   <a href="#!" class="collection-item1">
     <h1>Location:<%= cosmetic.location %></h1>
@@ -61,35 +61,38 @@
 </div>
 </div>
 
-
-<div id="modal5" class="modal modal-fixed-footer">
+<div id="modal3" class="modal modal-fixed-footer">
  <div class="modal-content">
  <h3 class="center">Make Order</h3>
   <div class="row">
-    <form class="col s12 m12 l12">
+    <form class="col s12 m12 l12" action="/postorder" method="post">
       <div class="row">
+
+           <div>
+            <input type="hidden" name="id" value="<%= cosmetic.id %>" />
+           </div>
         <div class="input-field col s12 m12 l6">
-          <input id="first_name" type="text" class="validate">
-          <label for="first_name">First Name</label>
+          <input id="name" name="name" type="text" class="validate">
+          <label for="first_name">Firstname Lastname</label>
         </div>
         <div class="input-field col s12 m12 l6">
-          <input id="last_name" type="text" class="validate">
-          <label for="last_name">Last Name</label>
-        </div>
-      </div>
-      <div class="row">
-        <div class="input-field col s12 m12 l6">
-           <input id="phone" type="text" class="validate">         
-           <label for="phone">Phone Number</label>
-        </div>
-        <div class="input-field col s12 m12 l6">
-          <input id="email" type="email" class="validate">
+          <input id="email" name="email" type="email" class="validate">
           <label for="email">Email</label>
         </div>
       </div>
       <div class="row">
+        <div class="input-field col s12 m12 l6">
+           <input id="phone" name="phone" type="text" class="validate">         
+           <label for="phone">Phone Number</label>
+        </div>
+        <div class="input-field col s12 m12 l6">
+          <input id="product" name="product" type="text" class="validate">
+          <label for="first_name">Product</label>
+        </div>
+      </div>
+      <div class="row">
         <div class="col s12">
-      <a href="/profile#!" class="modal-action modal-close waves-effect waves-red btn-flat ">Submit</a>
+       <button class="success button left">Submit</button>
           </div>
         </div>
       </div>

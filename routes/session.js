@@ -35,6 +35,10 @@ module.exports =  {
           console.log("login as admin user")
          res.redirect(req.session.returnTo || '/salonprofile');
          delete req.session.returnTo;
+         }else if(req.user.role == 'admin'){
+          console.log("login as admin user")
+         res.redirect(req.session.returnTo || '/adminindex');
+         delete req.session.returnTo;
          }else if(req.user.role == 'cosmeticuser'){
           console.log("login as admin user")
          res.redirect(req.session.returnTo || '/cosmeticprofile');
