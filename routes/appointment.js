@@ -2,10 +2,19 @@ const Appointment     = require('../models/appoinment');
 const Salon     = require('../models/salon');
 const Order     = require('../models/order');
 
+// We need this to build our post string
+var querystring = require('querystring');
+var https       = require('https');
+
+// africastalking user credentials
+var username = 'salon001';
+var apikey   = '520c3fc9d01b5ceaa8bf8309e2a5a2026353907e3e9cfa8c416a44413aab5ad4';
+
 module.exports = {
 
 
- //News routes 
+
+ //News routes
 
 
   postappointment: (req,res)=>{
@@ -19,15 +28,77 @@ module.exports = {
        appointment.date = req.body.date;
        appointment.style = req.body.style;
        appointment.time = req.body.time;
-       console.log(appointment.email);
-        
+       console.log("successfully placed an appointment");
+       var ms = "You have successfully placed an appointment schedule for " + appointment.date + " " + appointment.time;
+       console.log(ms);
+
        appointment.save((err, appointment)=>{
         if(err) return (err);
-          
-          
-        console.log(appointment)
+
+
+        console.log(appointment.phone);
+
+         // ********** Bulk sms code Start*********
+         // Define the recipient numbers in a comma separated string
+          // Numbers should be in international format as shown
+          var to      = appointment.phone;
+
+          // And of course we want our recipients to know what we really do
+          var message = ms;
+
+          // Build the post string from an object
+
+          var post_data = querystring.stringify({
+              'username' : username,
+              'to'       : to,
+              'message'  : message
+          });
+
+          var post_options = {
+              host   : 'api.africastalking.com',
+              path   : '/version1/messaging',
+              method : 'POST',
+
+              rejectUnauthorized : false,
+              requestCert        : true,
+              agent              : false,
+
+              headers: {
+                  'Content-Type' : 'application/x-www-form-urlencoded',
+                  'Content-Length': post_data.length,
+                  'Accept': 'application/json',
+                  'apikey': apikey
+              }
+          };
+
+          var post_req = https.request(post_options, function(res) {
+              res.setEncoding('utf8');
+              res.on('data', function (chunk) {
+                  var jsObject   = JSON.parse(chunk);
+                  var recipients = jsObject.SMSMessageData.Recipients;
+                  if ( recipients.length > 0 ) {
+                      for (var i = 0; i < recipients.length; ++i ) {
+                          var logStr  = 'number=' + recipients[i].number;
+                          logStr     += ';cost='   + recipients[i].cost;
+                          logStr     += ';status=' + recipients[i].status; // status is either "Success" or "error message"
+                          console.log(logStr);
+                          }
+                      } else {
+                          console.log('Error while sending: ' + jsObject.SMSMessageData.Message);
+                  }
+              });
+          });
+
+          // Add post parameters to the http request
+          post_req.write(post_data);
+
+          post_req.end();
+         // ********* Buld sms code ends **********
+
         res.redirect('/find');
       });
+
+
     //});
   },
 
@@ -54,7 +125,7 @@ module.exports = {
           title      : "update",
           appointment       : appointment
       });
-    });  
+    });
   },
 
   updateappointment: (req, res, next)=>{
@@ -84,11 +155,11 @@ module.exports = {
        order.cosmetic = req.body.id;
        order.product = req.body.product;
        console.log(order.email);
-        
+
        order.save((err, order)=>{
         if(err) return (err);
-          
-          
+
+
         console.log(order)
         res.redirect('/cosmetic');
       });
